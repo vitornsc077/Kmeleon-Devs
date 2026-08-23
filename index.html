@@ -1,0 +1,788 @@
+<!DOCTYPE html>
+<html lang="pt-BR" data-theme="light">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <!-- SEO Meta Tags -->
+  <title>Kmeleon Devs | Landing Pages e Softwares Sob Medida</title>
+  <meta name="description" content="A Kmeleon Devs cria landing pages de alta conversão e sistemas sob medida que se adaptam exatamente ao seu negócio. Agilidade, inovação e alta tecnologia.">
+  <meta name="keywords" content="Kmeleon Devs, landing page, desenvolvimento de software, sistemas sob medida, criação de sites, tecnologia, startup">
+  <meta name="author" content="Kmeleon Devs">
+  <meta name="theme-color" content="#E8F8E8" id="meta-theme-color">
+
+  <!-- Open Graph / Social Media -->
+  <meta property="og:type" content="website">
+  <meta property="og:title" content="Kmeleon Devs | Soluções Digitais que se adaptam ao seu negócio">
+  <meta property="og:description" content="Landing pages de alta conversão e sistemas sob medida com agilidade e excelência técnica.">
+  <meta property="og:image" content="imagens/2ec9d815-5251-4a7c-9293-e36978551b16.png">
+
+  <!-- Google Fonts: Space Grotesk & Inter -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=Space+Grotesk:wght@500;600;700;800&family=JetBrains+Mono:wght@400;500;700&display=swap" rel="stylesheet">
+  
+  <!-- Font Awesome Icons -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+
+  <!-- Main Stylesheet -->
+  <link rel="stylesheet" href="css/style.css">
+
+  <!-- Favicon -->
+  <link rel="icon" type="image/png" href="imagens/2ec9d815-5251-4a7c-9293-e36978551b16.png">
+</head>
+<body>
+
+  <!-- Background Ambient Glow & Grid -->
+  <div class="ambient-glow glow-1" aria-hidden="true"></div>
+  <div class="ambient-glow glow-2" aria-hidden="true"></div>
+  <div class="bg-grid-pattern" aria-hidden="true"></div>
+
+  <!-- HEADER & NAVIGATION -->
+  <header class="site-header" id="site-header">
+    <div class="header-container">
+      
+      <!-- Brand Logo -->
+      <a href="#inicio" class="brand-logo" aria-label="Kmeleon Devs Home">
+        <div class="logo-wrapper">
+          <img src="imagens/6f043007-4103-466c-914d-353867049168.png" alt="Kmeleon Devs Logo" class="logo-img logo-light">
+          <img src="imagens/2ec9d815-5251-4a7c-9293-e36978551b16.png" alt="Kmeleon Devs Logo" class="logo-img logo-dark">
+        </div>
+        <span class="brand-name">KMELEON<span class="brand-highlight">.DEVS</span></span>
+      </a>
+
+      <!-- Desktop Nav Links -->
+      <nav class="desktop-nav" aria-label="Navegação Principal">
+        <ul class="nav-list">
+          <li><a href="#inicio" class="nav-link active">Início</a></li>
+          <li><a href="#sobre" class="nav-link">Kmeleon Devs</a></li>
+          <li><a href="#servicos" class="nav-link">Serviços</a></li>
+          <li><a href="#produtos" class="nav-link">Produtos</a></li>
+        </ul>
+      </nav>
+
+      <!-- Action Buttons -->
+      <div class="header-actions">
+        <!-- Theme Switcher -->
+        <button id="theme-toggle" class="theme-toggle-btn" aria-label="Alternar tema claro/escuro" title="Alternar tema">
+          <div class="toggle-icon-wrap">
+            <i class="fa-solid fa-sun icon-sun" aria-hidden="true"></i>
+            <i class="fa-solid fa-moon icon-moon" aria-hidden="true"></i>
+          </div>
+          <span class="theme-label-sr sr-only">Alternar modo claro e escuro</span>
+        </button>
+
+        <!-- CTA Header -->
+        <a href="https://wa.me/5511988850424?text=Ol%C3%A1!%20Gostaria%20de%20um%20or%C3%A7amento%20com%20a%20Kmeleon%20Devs." target="_blank" rel="noopener noreferrer" class="btn btn-neon btn-sm header-cta">
+          <i class="fa-brands fa-whatsapp"></i>
+          <span>Falar Conosco</span>
+        </a>
+
+        <!-- Hamburger Menu Button -->
+        <button id="sidebar-open-btn" class="hamburger-btn" aria-label="Abrir menu de navegação" aria-expanded="false" aria-controls="sidebar-nav">
+          <span class="hamburger-line"></span>
+          <span class="hamburger-line"></span>
+          <span class="hamburger-line"></span>
+        </button>
+      </div>
+
+    </div>
+  </header>
+
+  <!-- SIDEBAR (DRAWER) -->
+  <aside id="sidebar-nav" class="sidebar-drawer" aria-hidden="true">
+    <div class="sidebar-header">
+      <div class="sidebar-logo">
+        <img src="imagens/6f043007-4103-466c-914d-353867049168.png" alt="Kmeleon Devs" class="logo-img logo-light">
+        <img src="imagens/2ec9d815-5251-4a7c-9293-e36978551b16.png" alt="Kmeleon Devs" class="logo-img logo-dark">
+        <span class="brand-name">KMELEON<span class="brand-highlight">.DEVS</span></span>
+      </div>
+      <button id="sidebar-close-btn" class="sidebar-close-btn" aria-label="Fechar menu">
+        <i class="fa-solid fa-xmark"></i>
+      </button>
+    </div>
+
+    <div class="sidebar-body">
+      <nav class="sidebar-nav-links">
+        <ul>
+          <li>
+            <a href="#inicio" class="sidebar-link active">
+              <i class="fa-solid fa-house"></i>
+              <span>Início</span>
+            </a>
+          </li>
+          <li>
+            <a href="#sobre" class="sidebar-link">
+              <i class="fa-solid fa-dna"></i>
+              <span>Kmeleon Devs</span>
+            </a>
+          </li>
+          <li>
+            <a href="#servicos" class="sidebar-link">
+              <i class="fa-solid fa-laptop-code"></i>
+              <span>Serviços</span>
+            </a>
+          </li>
+          <li>
+            <a href="#produtos" class="sidebar-link">
+              <i class="fa-solid fa-cubes-stacked"></i>
+              <span>Produtos & Vitrine</span>
+            </a>
+          </li>
+          <li>
+            <a href="#contato" class="sidebar-link">
+              <i class="fa-solid fa-paper-plane"></i>
+              <span>Contato</span>
+            </a>
+          </li>
+        </ul>
+      </nav>
+
+      <div class="sidebar-theme-box">
+        <span class="sidebar-theme-title">Aparência</span>
+        <button id="sidebar-theme-toggle" class="sidebar-theme-btn">
+          <i class="fa-solid fa-circle-half-stroke"></i>
+          <span id="sidebar-theme-text">Alternar para Modo Escuro</span>
+        </button>
+      </div>
+
+      <div class="sidebar-footer">
+        <a href="https://wa.me/5511988850424?text=Ol%C3%A1!%20Gostaria%20de%20solicitar%20um%20or%C3%A7amento%20com%20a%20Kmeleon%20Devs." target="_blank" rel="noopener noreferrer" class="btn btn-neon btn-block">
+          <i class="fa-brands fa-whatsapp"></i>
+          <span>Solicitar Orçamento</span>
+        </a>
+        <div class="sidebar-social">
+          <a href="#" target="_blank" rel="noopener noreferrer" class="social-icon" aria-label="Instagram">
+            <i class="fa-brands fa-instagram"></i>
+          </a>
+          <a href="https://wa.me/5511988850424" target="_blank" rel="noopener noreferrer" class="social-icon" aria-label="WhatsApp">
+            <i class="fa-brands fa-whatsapp"></i>
+          </a>
+        </div>
+      </div>
+    </div>
+  </aside>
+  <!-- Backdrop Overlay -->
+  <div id="sidebar-overlay" class="sidebar-overlay" aria-hidden="true"></div>
+
+  <!-- MAIN CONTENT -->
+  <main id="main-content">
+
+    <!-- 1. HERO SECTION (INÍCIO) -->
+    <section id="inicio" class="hero-section">
+      <div class="container hero-container">
+        
+        <div class="hero-content">
+          <div class="hero-badge">
+            <span class="badge-pulse"></span>
+            <i class="fa-solid fa-code-branch"></i>
+            <span>Tecnologia Adaptável de Alta Performance</span>
+          </div>
+
+          <h1 class="hero-title">
+            Nos adaptamos ao seu negócio, <span class="text-highlight">não o contrário.</span>
+          </h1>
+
+          <p class="hero-description">
+            A <strong>Kmeleon Devs</strong> transforma ideias em soluções digitais rápidas, eficientes e sob medida. Desenvolvemos <strong>landing pages de alta conversão</strong> e <strong>sistemas de software personalizados</strong> que geram resultados reais.
+          </p>
+
+          <div class="hero-cta-group">
+            <a href="https://wa.me/5511988850424?text=Ol%C3%A1!%20Quero%20transformar%20meu%20projeto%20com%20a%20Kmeleon%20Devs." target="_blank" rel="noopener noreferrer" class="btn btn-neon btn-lg">
+              <i class="fa-brands fa-whatsapp"></i>
+              <span>Solicitar Orçamento</span>
+              <i class="fa-solid fa-arrow-right icon-arrow"></i>
+            </a>
+            <a href="#produtos" class="btn btn-outline btn-lg">
+              <i class="fa-solid fa-eye"></i>
+              <span>Ver Vitrine</span>
+            </a>
+          </div>
+
+          <!-- Hero Metrics / Trust Factors -->
+          <div class="hero-stats">
+            <div class="stat-item">
+              <span class="stat-number">100%</span>
+              <span class="stat-label">Sob Medida</span>
+            </div>
+            <div class="stat-divider"></div>
+            <div class="stat-item">
+              <span class="stat-number">2x+</span>
+              <span class="stat-label">Mais Conversão</span>
+            </div>
+            <div class="stat-divider"></div>
+            <div class="stat-item">
+              <span class="stat-number">Ágil</span>
+              <span class="stat-label">Entrega Rápida</span>
+            </div>
+          </div>
+        </div>
+
+        <!-- Hero Visual: Video 1 (Transition Code -> Chameleon Logo) -->
+        <div class="hero-visual">
+          <div class="video-frame-wrap hero-video-card">
+            <div class="tech-card-header">
+              <div class="tech-dots">
+                <span class="dot dot-red"></span>
+                <span class="dot dot-yellow"></span>
+                <span class="dot dot-green"></span>
+              </div>
+              <span class="tech-filename">kmeleon-core.ts &bull; build: ready</span>
+              <span class="tech-live-tag"><i class="fa-solid fa-bolt"></i> Live</span>
+            </div>
+            
+            <div class="video-container">
+              <video 
+                id="hero-video"
+                class="responsive-video hero-vid" 
+                autoplay 
+                loop 
+                muted 
+                playsinline 
+                preload="auto"
+                poster="imagens/2ec9d815-5251-4a7c-9293-e36978551b16.png">
+                <source src="videos/Code_transitions_to_chameleon_logo_202608212024.mp4" type="video/mp4">
+                Seu navegador não suporta a tag de vídeo.
+              </video>
+              <div class="video-overlay-glow"></div>
+            </div>
+
+            <div class="hero-video-caption">
+              <div class="caption-icon">
+                <i class="fa-solid fa-wand-magic-sparkles"></i>
+              </div>
+              <div class="caption-text">
+                <strong>Código limpo & identidade marcante</strong>
+                <small>Da concepção à entrega de alta tecnologia</small>
+              </div>
+            </div>
+          </div>
+        </div>
+
+      </div>
+    </section>
+
+    <!-- 2. KMELEON DEVS (SOBRE) -->
+    <section id="sobre" class="section about-section">
+      <div class="container">
+        
+        <div class="section-header">
+          <div class="section-tag">
+            <i class="fa-solid fa-dna"></i>
+            <span>Nossa Essência</span>
+          </div>
+          <h2 class="section-title">Sobre a Kmeleon Devs</h2>
+          <div class="section-line"></div>
+        </div>
+
+        <div class="about-grid">
+          
+          <!-- Institutional Content Card (Exact Provided Text) -->
+          <div class="about-card-main glass-panel">
+            
+            <div class="quote-badge">
+              <i class="fa-solid fa-quote-left"></i>
+            </div>
+
+            <!-- Exact Lead Quote -->
+            <blockquote class="about-highlight-phrase">
+              "Nos adaptamos ao seu negócio, não o contrário."
+            </blockquote>
+
+            <!-- Exact Body Text -->
+            <div class="about-paragraphs">
+              <p>
+                A Kmeleon Devs nasceu com um propósito simples: transformar ideias em soluções digitais rápidas, eficientes e sob medida. Assim como o camaleão que inspira nossa marca, nos adaptamos a cada projeto, cada cliente e cada desafio — sem perder a essência de entregar tecnologia de qualidade.
+              </p>
+              
+              <p>
+                Trabalhamos com duas frentes principais: landing pages otimizadas para conversão, pensadas para transformar visitantes em clientes, e sistemas e softwares sob medida, desenvolvidos para atender necessidades específicas de cada negócio.
+              </p>
+
+              <div class="about-callout">
+                <div class="callout-icon">
+                  <i class="fa-solid fa-rocket"></i>
+                </div>
+                <p class="about-conclusion">
+                  Mais do que código, entregamos agilidade, inovação e parceria. Aqui, sua ideia se transforma em resultado.
+                </p>
+              </div>
+            </div>
+
+            <div class="about-cta-row">
+              <a href="https://wa.me/5511988850424?text=Ol%C3%A1!%20Li%20sobre%20a%20Kmeleon%20Devs%20e%20quero%20conversar%20sobre%20meu%20projeto." target="_blank" rel="noopener noreferrer" class="btn btn-neon">
+                <i class="fa-brands fa-whatsapp"></i>
+                <span>Converse com Nossos Especialistas</span>
+              </a>
+            </div>
+
+          </div>
+
+          <!-- Feature Cards / DNA Chameleon Pillars -->
+          <div class="about-pillars">
+            
+            <div class="pillar-card glass-panel">
+              <div class="pillar-icon-box">
+                <i class="fa-solid fa-arrows-split-up-and-left"></i>
+              </div>
+              <div class="pillar-info">
+                <h3>Adaptabilidade Real</h3>
+                <p>Assim como o camaleão, ajustamos arquitetura, design e fluxos exatamente ao modelo do seu negócio.</p>
+              </div>
+            </div>
+
+            <div class="pillar-card glass-panel">
+              <div class="pillar-icon-box">
+                <i class="fa-solid fa-bolt-lightning"></i>
+              </div>
+              <div class="pillar-info">
+                <h3>Agilidade de Entrega</h3>
+                <p>Metodologias ágeis que garantem que seu projeto vá ao ar rápido, gerando tração e faturamento.</p>
+              </div>
+            </div>
+
+            <div class="pillar-card glass-panel">
+              <div class="pillar-icon-box">
+                <i class="fa-solid fa-shield-halved"></i>
+              </div>
+              <div class="pillar-info">
+                <h3>Excelência Técnica</h3>
+                <p>Código limpo, arquitetura escalável e segurança sólida sem complicações desnecessárias.</p>
+              </div>
+            </div>
+
+            <div class="pillar-card glass-panel">
+              <div class="pillar-icon-box">
+                <i class="fa-solid fa-handshake-angle"></i>
+              </div>
+              <div class="pillar-info">
+                <h3>Parceria Estratégica</h3>
+                <p>Mais que fornecedores, somos parceiros de tecnologia focados no crescimento do seu negócio.</p>
+              </div>
+            </div>
+
+          </div>
+
+        </div>
+
+      </div>
+    </section>
+
+    <!-- 3. SERVIÇOS -->
+    <section id="servicos" class="section services-section">
+      <div class="container">
+        
+        <div class="section-header">
+          <div class="section-tag">
+            <i class="fa-solid fa-layer-group"></i>
+            <span>Nossas Frentes de Atuação</span>
+          </div>
+          <h2 class="section-title">Serviços Especializados</h2>
+          <p class="section-subtitle">
+            Duas frentes pensadas para acelerar sua presença digital e modernizar seus processos operacionais.
+          </p>
+          <div class="section-line"></div>
+        </div>
+
+        <div class="services-grid">
+          
+          <!-- Frente 1: Landing Pages -->
+          <div class="service-card glass-panel featured-service">
+            <div class="service-badge">Frente 01</div>
+            
+            <div class="service-icon-wrap">
+              <i class="fa-solid fa-bullseye"></i>
+            </div>
+
+            <h3 class="service-title">Landing Pages de Alta Conversão</h3>
+            <p class="service-desc">
+              Páginas planejadas e desenvolvidas estrategicamente para capturar a atenção, engajar o público e transformar visitantes casuais em clientes pagantes.
+            </p>
+
+            <div class="service-features-list">
+              <div class="feature-bullet">
+                <i class="fa-solid fa-circle-check"></i>
+                <span><strong>Design Mobile-First:</strong> Experiência impecável em smartphones e tablets.</span>
+              </div>
+              <div class="feature-bullet">
+                <i class="fa-solid fa-circle-check"></i>
+                <span><strong>Carregamento Ultrarrápido:</strong> Otimização técnica de ponta a ponta (Core Web Vitals).</span>
+              </div>
+              <div class="feature-bullet">
+                <i class="fa-solid fa-circle-check"></i>
+                <span><strong>Copywriting & Estrutura Persuasiva:</strong> Gatilhos visuais e CTAs estratégicos.</span>
+              </div>
+              <div class="feature-bullet">
+                <i class="fa-solid fa-circle-check"></i>
+                <span><strong>SEO & Integrações:</strong> Preparada para Google, Meta Ads e automações de WhatsApp/CRM.</span>
+              </div>
+            </div>
+
+            <div class="service-footer">
+              <a href="https://wa.me/5511988850424?text=Ol%C3%A1!%20Quero%20uma%20Landing%20Page%20profissional%20feita%20pela%20Kmeleon%20Devs." target="_blank" rel="noopener noreferrer" class="btn btn-neon btn-block">
+                <i class="fa-solid fa-arrow-trend-up"></i>
+                <span>Quero Minha Landing Page</span>
+              </a>
+            </div>
+          </div>
+
+          <!-- Frente 2: Sistemas & Softwares Sob Medida -->
+          <div class="service-card glass-panel featured-service">
+            <div class="service-badge">Frente 02</div>
+            
+            <div class="service-icon-wrap">
+              <i class="fa-solid fa-server"></i>
+            </div>
+
+            <h3 class="service-title">Sistemas & Softwares Sob Medida</h3>
+            <p class="service-desc">
+              Soluções personalizadas em tecnologia para automatizar processos, gerenciar dados, integrar ferramentas e resolver os desafios operacionais do seu negócio.
+            </p>
+
+            <div class="service-features-list">
+              <div class="feature-bullet">
+                <i class="fa-solid fa-circle-check"></i>
+                <span><strong>Sistemas Web & Dashboards:</strong> Painéis intuitivos para gestão e controle total.</span>
+              </div>
+              <div class="feature-bullet">
+                <i class="fa-solid fa-circle-check"></i>
+                <span><strong>Automação de Processos:</strong> Elimine tarefas manuais repetitivas e ganhe escala.</span>
+              </div>
+              <div class="feature-bullet">
+                <i class="fa-solid fa-circle-check"></i>
+                <span><strong>APIs & Integrações Customizadas:</strong> Conecte seus sistemas a gateways, ERPs e ferramentas.</span>
+              </div>
+              <div class="feature-bullet">
+                <i class="fa-solid fa-circle-check"></i>
+                <span><strong>Arquitetura Moderna & Escalável:</strong> Preparada para crescer junto com seu volume de usuários.</span>
+              </div>
+            </div>
+
+            <div class="service-footer">
+              <a href="https://wa.me/5511988850424?text=Ol%C3%A1!%20Gostaria%20de%20um%20or%C3%A7amento%20para%20desenvolvimento%20de%20sistema%20sob%20medida." target="_blank" rel="noopener noreferrer" class="btn btn-neon btn-block">
+                <i class="fa-solid fa-code"></i>
+                <span>Desenvolver Meu Software</span>
+              </a>
+            </div>
+          </div>
+
+        </div>
+
+      </div>
+    </section>
+
+    <!-- 4. PRODUTOS / VITRINE (SHOWCASE COM VÍDEOS 2 E 3) -->
+    <section id="produtos" class="section showcase-section">
+      <div class="container">
+        
+        <div class="section-header">
+          <div class="section-tag">
+            <i class="fa-solid fa-cubes-stacked"></i>
+            <span>Projetos & Portfólio</span>
+          </div>
+          <h2 class="section-title">Vitrine de Soluções</h2>
+          <p class="section-subtitle">
+            Veja na prática nossas soluções digitais em funcionamento com fluidez, elegância e alta performance.
+          </p>
+          <div class="section-line"></div>
+        </div>
+
+        <div class="showcase-grid">
+          
+          <!-- Card Vitrine 1: Vídeo 2 (Mockup Celular) -->
+          <div class="showcase-card glass-panel">
+            <div class="showcase-card-top">
+              <div class="showcase-badge-pill">
+                <i class="fa-solid fa-mobile-screen-button"></i> Mobile Experience
+              </div>
+              <span class="showcase-tech">100% Responsivo</span>
+            </div>
+
+            <!-- Phone Mockup Container for Video 2 -->
+            <div class="phone-mockup-frame">
+              <div class="phone-speaker"></div>
+              <div class="phone-screen">
+                <video 
+                  id="showcase-video-1"
+                  class="mockup-video" 
+                  autoplay 
+                  loop 
+                  muted 
+                  playsinline 
+                  preload="metadata">
+                  <source src="videos/deixe_so_a_parte_do_celular.mp4" type="video/mp4">
+                  Seu navegador não suporta a tag de vídeo.
+                </video>
+                <div class="video-play-status" title="Em execução automática">
+                  <i class="fa-solid fa-circle-play"></i>
+                </div>
+              </div>
+              <div class="phone-home-indicator"></div>
+            </div>
+
+            <div class="showcase-card-body">
+              <h3 class="showcase-item-title">Experiência Mobile Imersiva</h3>
+              <p class="showcase-item-desc">
+                Interfaces pensadas para toque rápido, navegação intuitiva e retenção máxima de usuários em qualquer tela.
+              </p>
+              
+              <div class="showcase-tags">
+                <span class="tag">Mobile-First</span>
+                <span class="tag">Interatividade</span>
+                <span class="tag">Alta Taxa de Retenção</span>
+              </div>
+
+              <a href="https://wa.me/5511988850424?text=Ol%C3%A1!%20Gostei%20do%20design%20mobile%20na%20vitrine%20da%20Kmeleon%20Devs%20e%20quero%20um%20projeto%20assim." target="_blank" rel="noopener noreferrer" class="btn btn-outline btn-block showcase-cta">
+                <i class="fa-brands fa-whatsapp"></i>
+                <span>Quero um Projeto Como Este</span>
+              </a>
+            </div>
+          </div>
+
+          <!-- Card Vitrine 2: Vídeo 3 (Projeto / Produto em Ação) -->
+          <div class="showcase-card glass-panel">
+            <div class="showcase-card-top">
+              <div class="showcase-badge-pill">
+                <i class="fa-solid fa-laptop-code"></i> Sistemas & Aplicações
+              </div>
+              <span class="showcase-tech">Sob Medida</span>
+            </div>
+
+            <!-- Laptop/App Mockup Container for Video 3 -->
+            <div class="laptop-mockup-frame">
+              <div class="laptop-browser-bar">
+                <div class="browser-dots">
+                  <span class="dot dot-red"></span>
+                  <span class="dot dot-yellow"></span>
+                  <span class="dot dot-green"></span>
+                </div>
+                <div class="browser-address">
+                  <i class="fa-solid fa-lock"></i>
+                  <span>app.kmeleondevs.com.br/dashboard</span>
+                </div>
+              </div>
+              <div class="laptop-screen">
+                <video 
+                  id="showcase-video-2"
+                  class="mockup-video" 
+                  autoplay 
+                  loop 
+                  muted 
+                  playsinline 
+                  preload="metadata">
+                  <source src="videos/vitrine/WhatsApp Video 2026-08-21 at 20.35.32.mp4" type="video/mp4">
+                  Seu navegador não suporta a tag de vídeo.
+                </video>
+                <div class="video-play-status" title="Em execução automática">
+                  <i class="fa-solid fa-circle-play"></i>
+                </div>
+              </div>
+            </div>
+
+            <div class="showcase-card-body">
+              <h3 class="showcase-item-title">Sistemas e Fluxos Interativos</h3>
+              <p class="showcase-item-desc">
+                Aplicações dinâmicas e sob medida com fluxos otimizados, interface refinada e capacidade total de expansão.
+              </p>
+              
+              <div class="showcase-tags">
+                <span class="tag">Fluxo Otimizado</span>
+                <span class="tag">Software Sob Medida</span>
+                <span class="tag">UX Moderna</span>
+              </div>
+
+              <a href="https://wa.me/5511988850424?text=Ol%C3%A1!%20Vi%20a%20vitrine%20de%20sistemas%20da%20Kmeleon%20Devs%20e%20gostaria%20de%20um%20or%C3%A7amento." target="_blank" rel="noopener noreferrer" class="btn btn-outline btn-block showcase-cta">
+                <i class="fa-brands fa-whatsapp"></i>
+                <span>Solicitar Demonstração</span>
+              </a>
+            </div>
+          </div>
+
+        </div>
+
+      </div>
+    </section>
+
+    <!-- 5. FLUXO DE TRABALHO ÁGIL (POR QUE NOS ESCOLHER) -->
+    <section class="section workflow-section">
+      <div class="container">
+        
+        <div class="section-header">
+          <div class="section-tag">
+            <i class="fa-solid fa-gears"></i>
+            <span>Método Kmeleon</span>
+          </div>
+          <h2 class="section-title">Como Transformamos Sua Ideia em Realidade</h2>
+          <div class="section-line"></div>
+        </div>
+
+        <div class="steps-grid">
+          
+          <div class="step-card glass-panel">
+            <div class="step-num">01</div>
+            <div class="step-icon">
+              <i class="fa-solid fa-comments"></i>
+            </div>
+            <h4>1. Diagnóstico & Adaptação</h4>
+            <p>Entendemos seu modelo de negócio, objetivos e público-alvo para traçar a melhor estratégia técnica.</p>
+          </div>
+
+          <div class="step-card glass-panel">
+            <div class="step-num">02</div>
+            <div class="step-icon">
+              <i class="fa-solid fa-pen-ruler"></i>
+            </div>
+            <h4>2. Design & Prototipagem</h4>
+            <p>Criamos a arquitetura visual moderna focada em conversão, usabilidade e identidade de impacto.</p>
+          </div>
+
+          <div class="step-card glass-panel">
+            <div class="step-num">03</div>
+            <div class="step-icon">
+              <i class="fa-solid fa-code"></i>
+            </div>
+            <h4>3. Desenvolvimento Ágil</h4>
+            <p>Construção com código limpo, tecnologias de alta performance, testes rigorosos e segurança.</p>
+          </div>
+
+          <div class="step-card glass-panel">
+            <div class="step-num">04</div>
+            <div class="step-icon">
+              <i class="fa-solid fa-rocket"></i>
+            </div>
+            <h4>4. Publicação & Suporte</h4>
+            <p>Seu projeto no ar pronto para gerar resultados, com suporte contínuo e total tranquilidade.</p>
+          </div>
+
+        </div>
+
+      </div>
+    </section>
+
+    <!-- 6. CONTATO & CTA FINAL -->
+    <section id="contato" class="section cta-final-section">
+      <div class="container">
+        
+        <div class="cta-banner glass-panel">
+          <div class="cta-banner-content">
+            
+            <div class="cta-badge">
+              <span class="pulse-green"></span>
+              <span>Vamos Construir Algo Incrível</span>
+            </div>
+
+            <h2 class="cta-title">
+              Pronto para levar seu negócio ao próximo nível digital?
+            </h2>
+
+            <p class="cta-subtitle">
+              Fale diretamente com nossa equipe no WhatsApp. Analisamos sua necessidade e apresentamos uma proposta sob medida com máxima agilidade.
+            </p>
+
+            <div class="cta-actions">
+              <a href="https://wa.me/5511988850424?text=Ol%C3%A1!%20Gostaria%20de%20solicitar%20um%20or%C3%A7amento%20com%20a%20Kmeleon%20Devs." target="_blank" rel="noopener noreferrer" class="btn btn-neon btn-xl pulse-btn">
+                <i class="fa-brands fa-whatsapp"></i>
+                <span>Chamar no WhatsApp (11) 98885-0424</span>
+              </a>
+            </div>
+
+            <div class="cta-guarantees">
+              <div class="guarantee-item">
+                <i class="fa-solid fa-clock"></i>
+                <span>Atendimento rápido e direto</span>
+              </div>
+              <div class="guarantee-item">
+                <i class="fa-solid fa-shield-check"></i>
+                <span>Orçamento sem compromisso</span>
+              </div>
+              <div class="guarantee-item">
+                <i class="fa-solid fa-code-commit"></i>
+                <span>Soluções 100% personalizadas</span>
+              </div>
+            </div>
+
+          </div>
+        </div>
+
+      </div>
+    </section>
+
+  </main>
+
+  <!-- FOOTER -->
+  <footer class="site-footer">
+    <div class="container footer-container">
+      
+      <div class="footer-brand-col">
+        <a href="#inicio" class="brand-logo footer-logo">
+          <div class="logo-wrapper">
+            <img src="imagens/6f043007-4103-466c-914d-353867049168.png" alt="Kmeleon Devs Logo" class="logo-img logo-light">
+            <img src="imagens/2ec9d815-5251-4a7c-9293-e36978551b16.png" alt="Kmeleon Devs Logo" class="logo-img logo-dark">
+          </div>
+          <span class="brand-name">KMELEON<span class="brand-highlight">.DEVS</span></span>
+        </a>
+        <p class="footer-tagline">
+          Transformando ideias em soluções digitais sob medida, rápidas e eficientes.
+        </p>
+      </div>
+
+      <div class="footer-links-col">
+        <h4 class="footer-col-title">Navegação</h4>
+        <ul class="footer-nav">
+          <li><a href="#inicio">Início</a></li>
+          <li><a href="#sobre">Kmeleon Devs</a></li>
+          <li><a href="#servicos">Serviços</a></li>
+          <li><a href="#produtos">Produtos & Vitrine</a></li>
+          <li><a href="#contato">Contato</a></li>
+        </ul>
+      </div>
+
+      <div class="footer-links-col">
+        <h4 class="footer-col-title">Serviços</h4>
+        <ul class="footer-nav">
+          <li><a href="#servicos">Landing Pages Otimizadas</a></li>
+          <li><a href="#servicos">Sistemas Sob Medida</a></li>
+          <li><a href="#servicos">Dashboards & Automações</a></li>
+          <li><a href="#servicos">Integrações de APIs</a></li>
+        </ul>
+      </div>
+
+      <div class="footer-social-col">
+        <h4 class="footer-col-title">Conecte-se</h4>
+        <div class="footer-social-links">
+          <a href="#" target="_blank" rel="noopener noreferrer" class="social-btn" aria-label="Siga no Instagram (Placeholder)">
+            <i class="fa-brands fa-instagram"></i>
+            <span>Instagram</span>
+          </a>
+          <a href="https://wa.me/5511988850424?text=Ol%C3%A1!%20Vim%20pelo%20site%20da%20Kmeleon%20Devs." target="_blank" rel="noopener noreferrer" class="social-btn" aria-label="Chame no WhatsApp">
+            <i class="fa-brands fa-whatsapp"></i>
+            <span>WhatsApp Oficial</span>
+          </a>
+        </div>
+      </div>
+
+    </div>
+
+    <div class="footer-bottom">
+      <div class="container footer-bottom-inner">
+        <p>&copy; <span id="current-year">2026</span> Kmeleon Devs. Todos os direitos reservados.</p>
+        <p class="footer-built">Tecnologia, Agilidade & Inovação.</p>
+      </div>
+    </div>
+  </footer>
+
+  <!-- Floating WhatsApp & Back to Top Buttons -->
+  <div class="floating-actions">
+    <button id="back-to-top" class="floating-btn back-to-top-btn" aria-label="Voltar ao topo" title="Voltar ao topo">
+      <i class="fa-solid fa-chevron-up"></i>
+    </button>
+    <a href="https://wa.me/5511988850424?text=Ol%C3%A1!%20Gostaria%20de%20um%20or%C3%A7amento%20com%20a%20Kmeleon%20Devs." target="_blank" rel="noopener noreferrer" class="floating-btn whatsapp-floating-btn" aria-label="Conversar no WhatsApp" title="Fale conosco no WhatsApp">
+      <i class="fa-brands fa-whatsapp"></i>
+      <span class="whatsapp-tooltip">Fale conosco</span>
+    </a>
+  </div>
+
+  <!-- Custom Scripts -->
+  <script src="js/script.js"></script>
+</body>
+</html>
