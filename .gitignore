@@ -1,6 +1,22 @@
+# Node dependencies
 node_modules/
-.env
+
+# Environment variables & secrets
+.env*
+mcp_config.json
+.mcp.json
+.agents/
+
+# System & OS
 .DS_Store
 Thumbs.db
-mcp_config.json
-.agents/
+
+# IDE & Editor
+.vscode/
+.idea/
+
+# Logs
+*.log
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
