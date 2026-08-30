@@ -1,12 +1,21 @@
 /**
  * ==========================================================================
- * KMELEON DEVS - JAVASCRIPT PRINCIPAL
+ * KMELEON DEVS - JAVASCRIPT PRINCIPAL (UX/UI ENHANCED)
+ * Baseado no Obsidian Vault (2.agents Kit: ui-ux-pro-max + frontend-design)
+ * 
  * Funcionalidades:
- * 1. Gerenciamento de Tema (Claro / Escuro) com persistência em localStorage
- * 2. Menu Lateral (Sidebar / Drawer) responsivo com animação e acessibilidade
- * 3. Scroll suave e ScrollSpy (destaque do link ativo durante a rolagem)
- * 4. Otimização de Vídeos em Loop via IntersectionObserver
- * 5. Botão Voltar ao Topo e micro-interações
+ * 1. Gerenciamento de Tema (Claro / Escuro) & Meta Tags
+ * 2. Barra de Progresso de Rolagem (Reading Progress Bar)
+ * 3. Efeito de Iluminação Dinâmica ao Mover o Cursor (Spotlight Glow)
+ * 4. Contadores Numéricos Animados (CountUp com IntersectionObserver)
+ * 5. Simulador Interativo de Projeto & Montador de Mensagem WhatsApp
+ * 6. Vitrine com Filtro por Abas de Categoria
+ * 7. Acordeão Interativo de Dúvidas Frequentes (FAQ Acessível)
+ * 8. Formulário de Contato Rápido com Validação & WhatsApp Sync
+ * 9. Menu Lateral (Drawer) com Suporte a Teclado & ESC
+ * 10. ScrollSpy & Destaque de Navegação
+ * 11. Otimização de Vídeos via IntersectionObserver
+ * 12. Botão Voltar ao Topo & Acessibilidade
  * ==========================================================================
  */
 
@@ -32,9 +41,9 @@ document.addEventListener('DOMContentLoaded', () => {
     const isDark = theme === 'dark';
     htmlRoot.setAttribute('data-theme', theme);
     
-    // Atualiza a cor da barra de endereço do navegador no mobile
+    // Atualiza a cor da barra de status do navegador no mobile
     if (metaThemeColor) {
-      metaThemeColor.setAttribute('content', isDark ? '#070D09' : '#E8F8E8');
+      metaThemeColor.setAttribute('content', isDark ? '#070D09' : '#EBF8EB');
     }
 
     // Atualiza o texto do botão no menu lateral
@@ -46,21 +55,17 @@ document.addEventListener('DOMContentLoaded', () => {
     localStorage.setItem(THEME_STORAGE_KEY, theme);
   }
 
-  /**
-   * Alterna entre os temas
-   */
   function toggleTheme() {
     const currentTheme = htmlRoot.getAttribute('data-theme') || 'light';
     const newTheme = currentTheme === 'dark' ? 'light' : 'dark';
     applyTheme(newTheme);
   }
 
-  // Inicialização do tema: verifica se há salvo no localStorage
+  // Inicialização do tema
   const savedTheme = localStorage.getItem(THEME_STORAGE_KEY);
   if (savedTheme === 'dark' || savedTheme === 'light') {
     applyTheme(savedTheme);
   } else {
-    // Padrão solicitado: Modo claro como padrão
     applyTheme('light');
   }
 
@@ -72,7 +77,283 @@ document.addEventListener('DOMContentLoaded', () => {
   }
 
   // --------------------------------------------------------------------------
-  // 2. MENU LATERAL (SIDEBAR / DRAWER)
+  // 2. BARRA DE PROGRESSO DE ROLAGEM (READING PROGRESS)
+  // --------------------------------------------------------------------------
+  const scrollProgressBar = document.getElementById('scroll-progress');
+
+  function updateScrollProgress() {
+    if (!scrollProgressBar) return;
+    const scrollTop = window.pageYOffset || document.documentElement.scrollTop;
+    const docHeight = document.documentElement.scrollHeight - document.documentElement.clientHeight;
+    const scrollPercent = docHeight > 0 ? (scrollTop / docHeight) * 100 : 0;
+    scrollProgressBar.style.width = `${scrollPercent}%`;
+  }
+
+  window.addEventListener('scroll', updateScrollProgress, { passive: true });
+
+  // --------------------------------------------------------------------------
+  // 3. EFEITO SPOTLIGHT DINÂMICO NOS CARDS DE VIDRO (GLASSMORPHISM)
+  // --------------------------------------------------------------------------
+  const glassCards = document.querySelectorAll('.glass-panel');
+
+  glassCards.forEach(card => {
+    card.addEventListener('mousemove', (e) => {
+      const rect = card.getBoundingClientRect();
+      const x = e.clientX - rect.left;
+      const y = e.clientY - rect.top;
+      card.style.setProperty('--mouse-x', `${x}px`);
+      card.style.setProperty('--mouse-y', `${y}px`);
+    });
+  });
+
+  // --------------------------------------------------------------------------
+  // 4. CONTADORES NUMÉRICOS ANIMADOS (COUNTUP)
+  // --------------------------------------------------------------------------
+  const countUpElements = document.querySelectorAll('.count-up');
+  let countUpDone = false;
+
+  function runCountUp(el) {
+    const target = parseFloat(el.getAttribute('data-target'));
+    const decimals = parseInt(el.getAttribute('data-decimals') || '0', 10);
+    const duration = 1800; // ms
+    const startTime = performance.now();
+
+    function update(now) {
+      const elapsed = now - startTime;
+      const progress = Math.min(elapsed / duration, 1);
+      
+      // Easing suave (easeOutExpo)
+      const easeOut = progress === 1 ? 1 : 1 - Math.pow(2, -10 * progress);
+      const currentVal = easeOut * target;
+
+      el.textContent = decimals > 0 ? currentVal.toFixed(decimals) : Math.floor(currentVal);
+
+      if (progress < 1) {
+        requestAnimationFrame(update);
+      } else {
+        el.textContent = decimals > 0 ? target.toFixed(decimals) : target;
+      }
+    }
+
+    requestAnimationFrame(update);
+  }
+
+  if ('IntersectionObserver' in window && countUpElements.length > 0) {
+    const statsObserver = new IntersectionObserver((entries) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting && !countUpDone) {
+          countUpDone = true;
+          countUpElements.forEach(el => runCountUp(el));
+          statsObserver.disconnect();
+        }
+      });
+    }, { threshold: 0.3 });
+
+    const statsSection = document.querySelector('.hero-stats');
+    if (statsSection) {
+      statsObserver.observe(statsSection);
+    }
+  }
+
+  // --------------------------------------------------------------------------
+  // 5. SIMULADOR DE PROJETOS & ORÇAMENTO INTERATIVO
+  // --------------------------------------------------------------------------
+  const simTypeCards = document.querySelectorAll('.sim-option-card[data-type="type"]');
+  const simUrgencyCards = document.querySelectorAll('.sim-urgency-card[data-type="urgency"]');
+  const simFeatureCheckboxes = document.querySelectorAll('input[name="sim-feature"]');
+  
+  const sumTypeVal = document.getElementById('sum-type-val');
+  const sumFeaturesList = document.getElementById('sum-features-list');
+  const sumUrgencyVal = document.getElementById('sum-urgency-val');
+  const simWhatsappCta = document.getElementById('sim-whatsapp-cta');
+
+  let selectedType = 'Landing Page de Alta Conversão';
+  let selectedUrgency = 'Ágil Padrão';
+
+  function updateSimulatorSummary() {
+    // 1. Atualiza Tipo
+    if (sumTypeVal) sumTypeVal.textContent = selectedType;
+
+    // 2. Atualiza Recursos
+    const selectedFeatures = [];
+    simFeatureCheckboxes.forEach(cb => {
+      const parentLabel = cb.closest('.sim-checkbox-card');
+      if (cb.checked) {
+        selectedFeatures.push(cb.value);
+        if (parentLabel) parentLabel.classList.add('active');
+      } else {
+        if (parentLabel) parentLabel.classList.remove('active');
+      }
+    });
+
+    if (sumFeaturesList) {
+      sumFeaturesList.innerHTML = '';
+      if (selectedFeatures.length === 0) {
+        sumFeaturesList.innerHTML = '<li><i class="fa-solid fa-circle-info"></i> Selecione ao menos 1 recurso</li>';
+      } else {
+        selectedFeatures.forEach(feat => {
+          const li = document.createElement('li');
+          li.innerHTML = `<i class="fa-solid fa-check" aria-hidden="true"></i> ${feat}`;
+          sumFeaturesList.appendChild(li);
+        });
+      }
+    }
+
+    // 3. Atualiza Urgência
+    if (sumUrgencyVal) sumUrgencyVal.textContent = selectedUrgency;
+
+    // 4. Monta link dinâmico de WhatsApp
+    if (simWhatsappCta) {
+      const phone = '5511988850424';
+      const featuresText = selectedFeatures.map(f => `  • ${f}`).join('\n');
+      const message = `Olá Kmeleon.Devs! Montei meu projeto no simulador do site e gostaria de um orçamento:\n\n` +
+                      `🚀 *Tipo de Solução:* ${selectedType}\n` +
+                      `⚙️ *Recursos Desejados:*\n${featuresText}\n` +
+                      `⏱️ *Prazo:* ${selectedUrgency}\n\n` +
+                      `Como podemos prosseguir?`;
+
+      simWhatsappCta.href = `https://wa.me/${phone}?text=${encodeURIComponent(message)}`;
+    }
+  }
+
+  // Event Listeners para Tipo de Projeto
+  simTypeCards.forEach(card => {
+    card.addEventListener('click', () => {
+      simTypeCards.forEach(c => {
+        c.classList.remove('active');
+        c.setAttribute('aria-checked', 'false');
+      });
+      card.classList.add('active');
+      card.setAttribute('aria-checked', 'true');
+      selectedType = card.getAttribute('data-value');
+      updateSimulatorSummary();
+    });
+  });
+
+  // Event Listeners para Recursos
+  simFeatureCheckboxes.forEach(cb => {
+    cb.addEventListener('change', () => {
+      updateSimulatorSummary();
+    });
+  });
+
+  // Event Listeners para Urgência
+  simUrgencyCards.forEach(card => {
+    card.addEventListener('click', () => {
+      simUrgencyCards.forEach(c => {
+        c.classList.remove('active');
+        c.setAttribute('aria-checked', 'false');
+      });
+      card.classList.add('active');
+      card.setAttribute('aria-checked', 'true');
+      selectedUrgency = card.getAttribute('data-value');
+      updateSimulatorSummary();
+    });
+  });
+
+  // Inicializa o simulador
+  updateSimulatorSummary();
+
+  // --------------------------------------------------------------------------
+  // 6. VITRINE COM FILTROS DE CATEGORIA (SHOWCASE TABS)
+  // --------------------------------------------------------------------------
+  const filterTabBtns = document.querySelectorAll('.filter-tab-btn');
+  const showcaseCards = document.querySelectorAll('.showcase-card');
+
+  filterTabBtns.forEach(btn => {
+    btn.addEventListener('click', () => {
+      const filter = btn.getAttribute('data-filter');
+
+      // Atualiza estado ativo dos botões
+      filterTabBtns.forEach(b => {
+        b.classList.remove('active');
+        b.setAttribute('aria-selected', 'false');
+      });
+      btn.classList.add('active');
+      btn.setAttribute('aria-selected', 'true');
+
+      // Filtra os cards
+      showcaseCards.forEach(card => {
+        const cardCategory = card.getAttribute('data-category');
+        if (filter === 'all' || cardCategory === filter) {
+          card.classList.remove('hidden');
+        } else {
+          card.classList.add('hidden');
+        }
+      });
+    });
+  });
+
+  // --------------------------------------------------------------------------
+  // 7. ACORDEÃO DE PERGUNTAS FREQUENTES (FAQ)
+  // --------------------------------------------------------------------------
+  const faqItems = document.querySelectorAll('.faq-item');
+
+  faqItems.forEach(item => {
+    const questionBtn = item.querySelector('.faq-question-btn');
+    const answerContent = item.querySelector('.faq-answer-content');
+
+    if (questionBtn && answerContent) {
+      questionBtn.addEventListener('click', () => {
+        const isOpen = item.classList.contains('active');
+
+        // Opcional: fechar outros itens para manter foco limpo
+        faqItems.forEach(otherItem => {
+          if (otherItem !== item && otherItem.classList.contains('active')) {
+            otherItem.classList.remove('active');
+            const otherBtn = otherItem.querySelector('.faq-question-btn');
+            const otherContent = otherItem.querySelector('.faq-answer-content');
+            if (otherBtn) otherBtn.setAttribute('aria-expanded', 'false');
+            if (otherContent) otherContent.style.maxHeight = null;
+          }
+        });
+
+        // Alterna item clicado
+        if (isOpen) {
+          item.classList.remove('active');
+          questionBtn.setAttribute('aria-expanded', 'false');
+          answerContent.style.maxHeight = null;
+        } else {
+          item.classList.add('active');
+          questionBtn.setAttribute('aria-expanded', 'true');
+          answerContent.style.maxHeight = answerContent.scrollHeight + 'px';
+        }
+      });
+    }
+  });
+
+  // --------------------------------------------------------------------------
+  // 8. FORMULÁRIO DE CONTATO RÁPIDO COM INTEGRAÇÃO WHATSAPP
+  // --------------------------------------------------------------------------
+  const quickContactForm = document.getElementById('quick-contact-form');
+
+  if (quickContactForm) {
+    quickContactForm.addEventListener('submit', (e) => {
+      e.preventDefault();
+
+      const name = document.getElementById('contact-name')?.value.trim();
+      const whatsapp = document.getElementById('contact-whatsapp')?.value.trim();
+      const solution = document.getElementById('contact-solution')?.value;
+      const message = document.getElementById('contact-msg')?.value.trim();
+
+      if (!name || !whatsapp) {
+        alert('Por favor, preencha seu nome e WhatsApp para continuar.');
+        return;
+      }
+
+      const phone = '5511988850424';
+      const msgText = `Olá Kmeleon.Devs! Meu nome é *${name}* (${whatsapp}).\n` +
+                      `Tenho interesse em: *${solution}*.\n` +
+                      (message ? `Mensagem: "${message}"\n` : '') +
+                      `Gostaria de agendar uma conversa sobre meu projeto.`;
+
+      const whatsappUrl = `https://wa.me/${phone}?text=${encodeURIComponent(msgText)}`;
+      window.open(whatsappUrl, '_blank');
+    });
+  }
+
+  // --------------------------------------------------------------------------
+  // 9. MENU LATERAL (SIDEBAR / DRAWER)
   // --------------------------------------------------------------------------
   const sidebarDrawer = document.getElementById('sidebar-nav');
   const sidebarOverlay = document.getElementById('sidebar-overlay');
@@ -81,51 +362,41 @@ document.addEventListener('DOMContentLoaded', () => {
   const sidebarLinks = document.querySelectorAll('.sidebar-link');
 
   function openSidebar() {
+    if (!sidebarDrawer || !sidebarOverlay) return;
     sidebarDrawer.classList.add('active');
     sidebarOverlay.classList.add('active');
     sidebarDrawer.setAttribute('aria-hidden', 'false');
     sidebarOverlay.setAttribute('aria-hidden', 'false');
-    sidebarOpenBtn.setAttribute('aria-expanded', 'true');
-    document.body.style.overflow = 'hidden'; // Bloqueia scroll do fundo
+    if (sidebarOpenBtn) sidebarOpenBtn.setAttribute('aria-expanded', 'true');
+    document.body.style.overflow = 'hidden';
   }
 
   function closeSidebar() {
+    if (!sidebarDrawer || !sidebarOverlay) return;
     sidebarDrawer.classList.remove('active');
     sidebarOverlay.classList.remove('active');
     sidebarDrawer.setAttribute('aria-hidden', 'true');
     sidebarOverlay.setAttribute('aria-hidden', 'true');
-    sidebarOpenBtn.setAttribute('aria-expanded', 'false');
-    document.body.style.overflow = ''; // Restaura scroll
+    if (sidebarOpenBtn) sidebarOpenBtn.setAttribute('aria-expanded', 'false');
+    document.body.style.overflow = '';
   }
 
-  if (sidebarOpenBtn) {
-    sidebarOpenBtn.addEventListener('click', openSidebar);
-  }
+  if (sidebarOpenBtn) sidebarOpenBtn.addEventListener('click', openSidebar);
+  if (sidebarCloseBtn) sidebarCloseBtn.addEventListener('click', closeSidebar);
+  if (sidebarOverlay) sidebarOverlay.addEventListener('click', closeSidebar);
 
-  if (sidebarCloseBtn) {
-    sidebarCloseBtn.addEventListener('click', closeSidebar);
-  }
-
-  if (sidebarOverlay) {
-    sidebarOverlay.addEventListener('click', closeSidebar);
-  }
-
-  // Fecha o menu lateral ao clicar em qualquer link interno
   sidebarLinks.forEach(link => {
-    link.addEventListener('click', () => {
-      closeSidebar();
-    });
+    link.addEventListener('click', closeSidebar);
   });
 
-  // Fechar com tecla ESC
   document.addEventListener('keydown', (e) => {
-    if (e.key === 'Escape' && sidebarDrawer.classList.contains('active')) {
+    if (e.key === 'Escape' && sidebarDrawer && sidebarDrawer.classList.contains('active')) {
       closeSidebar();
     }
   });
 
   // --------------------------------------------------------------------------
-  // 3. SCROLLSPY (DESTAQUE AUTOMÁTICO DOS LINKS DE NAVEGAÇÃO)
+  // 10. SCROLLSPY (DESTAQUE AUTOMÁTICO DE NAVEGAÇÃO)
   // --------------------------------------------------------------------------
   const sections = document.querySelectorAll('main section[id]');
   const desktopNavLinks = document.querySelectorAll('.desktop-nav .nav-link');
@@ -135,11 +406,10 @@ document.addEventListener('DOMContentLoaded', () => {
 
     sections.forEach(section => {
       const sectionHeight = section.offsetHeight;
-      const sectionTop = section.offsetTop - 120;
+      const sectionTop = section.offsetTop - 140;
       const sectionId = section.getAttribute('id');
 
       if (scrollY >= sectionTop && scrollY < sectionTop + sectionHeight) {
-        // Atualiza nav desktop
         desktopNavLinks.forEach(link => {
           link.classList.remove('active');
           if (link.getAttribute('href') === `#${sectionId}`) {
@@ -147,7 +417,6 @@ document.addEventListener('DOMContentLoaded', () => {
           }
         });
 
-        // Atualiza nav sidebar
         sidebarLinks.forEach(link => {
           link.classList.remove('active');
           if (link.getAttribute('href') === `#${sectionId}`) {
@@ -161,7 +430,7 @@ document.addEventListener('DOMContentLoaded', () => {
   window.addEventListener('scroll', updateActiveNavOnScroll, { passive: true });
 
   // --------------------------------------------------------------------------
-  // 4. BOTÃO VOLTAR AO TOPO
+  // 11. BOTÃO VOLTAR AO TOPO
   // --------------------------------------------------------------------------
   const backToTopBtn = document.getElementById('back-to-top');
 
@@ -186,26 +455,21 @@ document.addEventListener('DOMContentLoaded', () => {
   }
 
   // --------------------------------------------------------------------------
-  // 5. CONTROLE INTELIGENTE E OTIMIZADO DE VÍDEOS EM LOOP
+  // 12. OTIMIZAÇÃO INTELIGENTE DE VÍDEOS EM LOOP
   // --------------------------------------------------------------------------
   const allVideos = document.querySelectorAll('video');
 
-  // Garante que todos os vídeos sejam configurados corretamente para autoplay mudo
   allVideos.forEach(video => {
     video.muted = true;
     video.playsInline = true;
     video.loop = true;
 
-    // Tentativa inicial de reprodução segura (evita rejeição por política de browser)
     const playPromise = video.play();
     if (playPromise !== undefined) {
-      playPromise.catch(() => {
-        // Autoplay bloqueado pelo navegador; será disparado via IntersectionObserver
-      });
+      playPromise.catch(() => {});
     }
   });
 
-  // Pausa vídeos quando estão fora da tela para poupar bateria e performance
   if ('IntersectionObserver' in window) {
     const videoObserver = new IntersectionObserver((entries) => {
       entries.forEach(entry => {
@@ -220,9 +484,7 @@ document.addEventListener('DOMContentLoaded', () => {
           }
         }
       });
-    }, {
-      threshold: 0.2
-    });
+    }, { threshold: 0.2 });
 
     allVideos.forEach(video => {
       videoObserver.observe(video);
@@ -230,7 +492,7 @@ document.addEventListener('DOMContentLoaded', () => {
   }
 
   // --------------------------------------------------------------------------
-  // 6. ATUALIZAÇÃO AUTOMÁTICA DO ANO NO RODAPÉ
+  // 13. ATUALIZAÇÃO DO ANO NO RODAPÉ
   // --------------------------------------------------------------------------
   const currentYearSpan = document.getElementById('current-year');
   if (currentYearSpan) {
