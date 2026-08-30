@@ -23,7 +23,7 @@
   /* Theme: Light (Padrão) */
   --bg-primary: #EBF8EB;
   --bg-secondary: #DCF2DC;
-  --bg-card: rgba(255, 255, 255, 0.88);
+  --bg-card: rgba(255, 255, 255, 0.90);
   --bg-card-hover: rgba(255, 255, 255, 0.98);
   --bg-header: rgba(235, 248, 235, 0.92);
   --bg-drawer: #EBF8EB;
@@ -68,7 +68,7 @@
 [data-theme="dark"] {
   --bg-primary: #070D09;
   --bg-secondary: #0D1610;
-  --bg-card: rgba(15, 28, 20, 0.82);
+  --bg-card: rgba(15, 28, 20, 0.85);
   --bg-card-hover: rgba(22, 42, 30, 0.95);
   --bg-header: rgba(7, 13, 9, 0.92);
   --bg-drawer: #09120B;
@@ -127,6 +127,11 @@ body {
   overflow-wrap: break-word;
 }
 
+/* Smooth anchor scrolling offset */
+section[id] {
+  scroll-margin-top: 90px;
+}
+
 /* Accessibility Focus Rings (WCAG AA) */
 :focus-visible {
   outline: 2px solid var(--neon-green);
@@ -172,6 +177,11 @@ button, input, select, textarea {
   font-size: inherit;
 }
 
+select option {
+  background-color: var(--bg-card);
+  color: var(--text-primary);
+}
+
 .sr-only {
   position: absolute;
   width: 1px;
@@ -193,13 +203,13 @@ button, input, select, textarea {
 }
 
 .section {
-  padding: 6rem 0;
+  padding: 5.5rem 0;
   position: relative;
 }
 
 @media (max-width: 768px) {
   .section {
-    padding: 4rem 0;
+    padding: 3.75rem 0;
   }
 }
 
@@ -1269,7 +1279,7 @@ button, input, select, textarea {
 }
 
 /* --------------------------------------------------------------------------
-   11. INTERACTIVE PROJECT SIMULATOR (NEW UX COMPONENT)
+   11. INTERACTIVE PROJECT SIMULATOR
    -------------------------------------------------------------------------- */
 .simulator-wrapper {
   display: grid;
@@ -1410,6 +1420,7 @@ button, input, select, textarea {
   border-radius: var(--radius-md);
   cursor: pointer;
   transition: all var(--transition-fast);
+  user-select: none;
 }
 
 .sim-checkbox-card input {
@@ -2101,7 +2112,7 @@ button, input, select, textarea {
 }
 
 /* --------------------------------------------------------------------------
-   13. TECH STACK & ENGINEERING SECTION (NEW COMPONENT)
+   13. TECH STACK & ENGINEERING SECTION
    -------------------------------------------------------------------------- */
 .tech-grid {
   display: grid;
@@ -2224,90 +2235,7 @@ button, input, select, textarea {
 }
 
 /* --------------------------------------------------------------------------
-   15. TESTIMONIALS & SOCIAL PROOF (NEW COMPONENT)
-   -------------------------------------------------------------------------- */
-.testimonials-grid {
-  display: grid;
-  grid-template-columns: repeat(3, 1fr);
-  gap: 1.75rem;
-}
-
-.testimonial-card {
-  padding: 2rem 1.75rem;
-  display: flex;
-  flex-direction: column;
-  justify-content: space-between;
-}
-
-.test-stars {
-  display: flex;
-  gap: 4px;
-  color: var(--accent-gold);
-  font-size: 0.95rem;
-  margin-bottom: 1.15rem;
-}
-
-.test-quote {
-  font-size: 0.95rem;
-  line-height: 1.6;
-  font-style: italic;
-  margin-bottom: 1.75rem;
-}
-
-.test-author-row {
-  display: flex;
-  align-items: center;
-  gap: 0.85rem;
-  position: relative;
-}
-
-.test-avatar {
-  width: 44px;
-  height: 44px;
-  border-radius: 50%;
-  background: var(--badge-bg);
-  color: var(--neon-green);
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  font-size: 1.25rem;
-  flex-shrink: 0;
-}
-
-.test-author-info {
-  display: flex;
-  flex-direction: column;
-}
-
-.test-author-info strong {
-  font-size: 0.925rem;
-}
-
-.test-author-info small {
-  font-size: 0.75rem;
-  color: var(--text-muted);
-}
-
-.test-metric-badge {
-  position: absolute;
-  right: 0;
-  top: 0;
-  font-size: 0.7rem;
-  font-weight: 800;
-  color: var(--btn-neon-text);
-  background: var(--btn-neon-bg);
-  padding: 0.2rem 0.55rem;
-  border-radius: var(--radius-full);
-}
-
-@media (max-width: 992px) {
-  .testimonials-grid {
-    grid-template-columns: 1fr;
-  }
-}
-
-/* --------------------------------------------------------------------------
-   16. FAQ ACCORDION (NEW COMPONENT)
+   15. FAQ ACCORDION (CSS GRID GLITCH-FREE ANIMATION)
    -------------------------------------------------------------------------- */
 .faq-accordion-wrap {
   max-width: 860px;
@@ -2349,7 +2277,7 @@ button, input, select, textarea {
   justify-content: center;
   font-size: 0.85rem;
   flex-shrink: 0;
-  transition: transform var(--transition-fast);
+  transition: transform var(--transition-fast), background-color var(--transition-fast);
 }
 
 .faq-item.active .faq-icon-arrow {
@@ -2359,20 +2287,29 @@ button, input, select, textarea {
 }
 
 .faq-answer-content {
-  max-height: 0;
-  overflow: hidden;
-  transition: max-height 0.35s cubic-bezier(0.16, 1, 0.3, 1);
+  display: grid;
+  grid-template-rows: 0fr;
+  transition: grid-template-rows 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.faq-item.active .faq-answer-content {
+  grid-template-rows: 1fr;
 }
 
 .faq-answer-inner {
-  padding: 0 1.65rem 1.35rem;
+  overflow: hidden;
+  padding: 0 1.65rem;
   font-size: 0.95rem;
   line-height: 1.65;
   color: var(--text-secondary);
 }
 
+.faq-item.active .faq-answer-inner {
+  padding-bottom: 1.35rem;
+}
+
 /* --------------------------------------------------------------------------
-   17. CTA & QUICK CONTACT FORM
+   16. CTA & QUICK CONTACT FORM
    -------------------------------------------------------------------------- */
 .cta-banner {
   padding: 3.5rem 2.5rem;
@@ -2507,7 +2444,7 @@ button, input, select, textarea {
 }
 
 /* --------------------------------------------------------------------------
-   18. FOOTER & FLOATING ACTIONS
+   17. FOOTER & FLOATING ACTIONS
    -------------------------------------------------------------------------- */
 .site-footer {
   background: var(--bg-secondary);
@@ -2685,7 +2622,7 @@ button, input, select, textarea {
 }
 
 /* --------------------------------------------------------------------------
-   19. ACCESSIBILITY & PREFERS-REDUCED-MOTION
+   18. ACCESSIBILITY & PREFERS-REDUCED-MOTION
    -------------------------------------------------------------------------- */
 @media (prefers-reduced-motion: reduce) {
   *, *::before, *::after {

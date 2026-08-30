@@ -1,19 +1,19 @@
 /**
  * ==========================================================================
- * KMELEON DEVS - JAVASCRIPT PRINCIPAL (UX/UI ENHANCED)
+ * KMELEON DEVS - JAVASCRIPT PRINCIPAL
  * Baseado no Obsidian Vault (2.agents Kit: ui-ux-pro-max + frontend-design)
  * 
  * Funcionalidades:
  * 1. Gerenciamento de Tema (Claro / Escuro) & Meta Tags
  * 2. Barra de Progresso de Rolagem (Reading Progress Bar)
- * 3. Efeito de Iluminação Dinâmica ao Mover o Cursor (Spotlight Glow)
+ * 3. Efeito Spotlight Dinâmico ao Mover o Cursor (Glassmorphism 2.0)
  * 4. Contadores Numéricos Animados (CountUp com IntersectionObserver)
  * 5. Simulador Interativo de Projeto & Montador de Mensagem WhatsApp
  * 6. Vitrine com Filtro por Abas de Categoria
  * 7. Acordeão Interativo de Dúvidas Frequentes (FAQ Acessível)
  * 8. Formulário de Contato Rápido com Validação & WhatsApp Sync
  * 9. Menu Lateral (Drawer) com Suporte a Teclado & ESC
- * 10. ScrollSpy & Destaque de Navegação
+ * 10. ScrollSpy & Destaque Automático de Navegação
  * 11. Otimização de Vídeos via IntersectionObserver
  * 12. Botão Voltar ao Topo & Acessibilidade
  * ==========================================================================
@@ -33,25 +33,18 @@ document.addEventListener('DOMContentLoaded', () => {
 
   const THEME_STORAGE_KEY = 'kmeleon_theme_preference';
 
-  /**
-   * Aplica o tema selecionado à página
-   * @param {string} theme - 'light' ou 'dark'
-   */
   function applyTheme(theme) {
     const isDark = theme === 'dark';
     htmlRoot.setAttribute('data-theme', theme);
     
-    // Atualiza a cor da barra de status do navegador no mobile
     if (metaThemeColor) {
       metaThemeColor.setAttribute('content', isDark ? '#070D09' : '#EBF8EB');
     }
 
-    // Atualiza o texto do botão no menu lateral
     if (sidebarThemeText) {
       sidebarThemeText.textContent = isDark ? 'Alternar para Modo Claro' : 'Alternar para Modo Escuro';
     }
 
-    // Salva a preferência
     localStorage.setItem(THEME_STORAGE_KEY, theme);
   }
 
@@ -115,7 +108,7 @@ document.addEventListener('DOMContentLoaded', () => {
   function runCountUp(el) {
     const target = parseFloat(el.getAttribute('data-target'));
     const decimals = parseInt(el.getAttribute('data-decimals') || '0', 10);
-    const duration = 1800; // ms
+    const duration = 1600; // ms
     const startTime = performance.now();
 
     function update(now) {
@@ -189,7 +182,7 @@ document.addEventListener('DOMContentLoaded', () => {
     if (sumFeaturesList) {
       sumFeaturesList.innerHTML = '';
       if (selectedFeatures.length === 0) {
-        sumFeaturesList.innerHTML = '<li><i class="fa-solid fa-circle-info"></i> Selecione ao menos 1 recurso</li>';
+        sumFeaturesList.innerHTML = '<li><i class="fa-solid fa-circle-info" aria-hidden="true"></i> Selecione ao menos 1 recurso</li>';
       } else {
         selectedFeatures.forEach(feat => {
           const li = document.createElement('li');
@@ -218,14 +211,15 @@ document.addEventListener('DOMContentLoaded', () => {
 
   // Event Listeners para Tipo de Projeto
   simTypeCards.forEach(card => {
-    card.addEventListener('click', () => {
+    card.addEventListener('click', (e) => {
+      e.preventDefault();
       simTypeCards.forEach(c => {
         c.classList.remove('active');
         c.setAttribute('aria-checked', 'false');
       });
       card.classList.add('active');
       card.setAttribute('aria-checked', 'true');
-      selectedType = card.getAttribute('data-value');
+      selectedType = card.getAttribute('data-value') || 'Landing Page de Alta Conversão';
       updateSimulatorSummary();
     });
   });
@@ -239,14 +233,15 @@ document.addEventListener('DOMContentLoaded', () => {
 
   // Event Listeners para Urgência
   simUrgencyCards.forEach(card => {
-    card.addEventListener('click', () => {
+    card.addEventListener('click', (e) => {
+      e.preventDefault();
       simUrgencyCards.forEach(c => {
         c.classList.remove('active');
         c.setAttribute('aria-checked', 'false');
       });
       card.classList.add('active');
       card.setAttribute('aria-checked', 'true');
-      selectedUrgency = card.getAttribute('data-value');
+      selectedUrgency = card.getAttribute('data-value') || 'Ágil Padrão';
       updateSimulatorSummary();
     });
   });
@@ -261,7 +256,8 @@ document.addEventListener('DOMContentLoaded', () => {
   const showcaseCards = document.querySelectorAll('.showcase-card');
 
   filterTabBtns.forEach(btn => {
-    btn.addEventListener('click', () => {
+    btn.addEventListener('click', (e) => {
+      e.preventDefault();
       const filter = btn.getAttribute('data-filter');
 
       // Atualiza estado ativo dos botões
@@ -291,20 +287,18 @@ document.addEventListener('DOMContentLoaded', () => {
 
   faqItems.forEach(item => {
     const questionBtn = item.querySelector('.faq-question-btn');
-    const answerContent = item.querySelector('.faq-answer-content');
 
-    if (questionBtn && answerContent) {
-      questionBtn.addEventListener('click', () => {
+    if (questionBtn) {
+      questionBtn.addEventListener('click', (e) => {
+        e.preventDefault();
         const isOpen = item.classList.contains('active');
 
-        // Opcional: fechar outros itens para manter foco limpo
+        // Fecha outros itens para foco limpo
         faqItems.forEach(otherItem => {
           if (otherItem !== item && otherItem.classList.contains('active')) {
             otherItem.classList.remove('active');
             const otherBtn = otherItem.querySelector('.faq-question-btn');
-            const otherContent = otherItem.querySelector('.faq-answer-content');
             if (otherBtn) otherBtn.setAttribute('aria-expanded', 'false');
-            if (otherContent) otherContent.style.maxHeight = null;
           }
         });
 
@@ -312,11 +306,9 @@ document.addEventListener('DOMContentLoaded', () => {
         if (isOpen) {
           item.classList.remove('active');
           questionBtn.setAttribute('aria-expanded', 'false');
-          answerContent.style.maxHeight = null;
         } else {
           item.classList.add('active');
           questionBtn.setAttribute('aria-expanded', 'true');
-          answerContent.style.maxHeight = answerContent.scrollHeight + 'px';
         }
       });
     }

@@ -22,7 +22,7 @@
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=Space+Grotesk:wght@500;600;700;800&family=JetBrains+Mono:wght@400;500;700&display=swap" rel="stylesheet">
   
-  <!-- Font Awesome Icons -->
+  <!-- Font Awesome Icons 6.5.1 -->
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
 
   <!-- Main Stylesheet -->
@@ -108,7 +108,7 @@
         <span class="brand-name">Kmeleon<span class="brand-highlight">.Devs</span></span>
       </div>
       <button id="sidebar-close-btn" class="sidebar-close-btn" aria-label="Fechar menu">
-        <i class="fa-solid fa-xmark"></i>
+        <i class="fa-solid fa-xmark" aria-hidden="true"></i>
       </button>
     </div>
 
@@ -168,7 +168,7 @@
 
       <div class="sidebar-theme-box">
         <span class="sidebar-theme-title">Aparência</span>
-        <button id="sidebar-theme-toggle" class="sidebar-theme-btn">
+        <button id="sidebar-theme-toggle" class="sidebar-theme-btn" type="button">
           <i class="fa-solid fa-circle-half-stroke" aria-hidden="true"></i>
           <span id="sidebar-theme-text">Alternar para Modo Escuro</span>
         </button>
@@ -230,14 +230,14 @@
             <div class="stat-divider" aria-hidden="true"></div>
             <div class="stat-item">
               <div class="stat-number-wrap">
-                <span class="stat-number count-up" data-target="3" data-decimals="1">2.8</span><span class="stat-suffix">x</span>
+                <span class="stat-number count-up" data-target="2.8" data-decimals="1">2.8</span><span class="stat-suffix">x</span>
               </div>
               <span class="stat-label">Mais Conversão</span>
             </div>
             <div class="stat-divider" aria-hidden="true"></div>
             <div class="stat-item">
               <div class="stat-number-wrap">
-                <span class="stat-prefix">&lt;</span><span class="stat-number count-up" data-target="0.5" data-decimals="1">0.4</span><span class="stat-suffix">s</span>
+                <span class="stat-prefix">&lt;</span><span class="stat-number count-up" data-target="0.4" data-decimals="1">0.4</span><span class="stat-suffix">s</span>
               </div>
               <span class="stat-label">Carregamento</span>
             </div>
@@ -504,7 +504,7 @@
       </div>
     </section>
 
-    <!-- 4. SIMULADOR INTERATIVO DE PROJETO & ORÇAMENTO (NEW UX COMPONENT) -->
+    <!-- 4. SIMULADOR INTERATIVO DE PROJETO & ORÇAMENTO -->
     <section id="simulador" class="section simulator-section">
       <div class="container">
         
@@ -672,7 +672,7 @@
               </div>
 
               <div class="summary-callout">
-                <i class="fa-solid fa-shield-check" aria-hidden="true"></i>
+                <i class="fa-solid fa-shield-halved" aria-hidden="true"></i>
                 <span>Garantia de código 100% autoral, sem templates prontos engessados.</span>
               </div>
             </div>
@@ -710,16 +710,16 @@
 
         <!-- Filter Tabs -->
         <div class="showcase-filter-tabs" role="tablist" aria-label="Filtrar vitrine por categoria">
-          <button class="filter-tab-btn active" data-filter="all" role="tab" aria-selected="true">
-            <i class="fa-solid fa-grid-2" aria-hidden="true"></i> Todos os Projetos
+          <button type="button" class="filter-tab-btn active" data-filter="all" role="tab" aria-selected="true">
+            <i class="fa-solid fa-layer-group" aria-hidden="true"></i> Todos os Projetos
           </button>
-          <button class="filter-tab-btn" data-filter="landing" role="tab" aria-selected="false">
+          <button type="button" class="filter-tab-btn" data-filter="landing" role="tab" aria-selected="false">
             <i class="fa-solid fa-rocket" aria-hidden="true"></i> Landing Pages
           </button>
-          <button class="filter-tab-btn" data-filter="systems" role="tab" aria-selected="false">
+          <button type="button" class="filter-tab-btn" data-filter="systems" role="tab" aria-selected="false">
             <i class="fa-solid fa-laptop-code" aria-hidden="true"></i> Sistemas Web
           </button>
-          <button class="filter-tab-btn" data-filter="mobile" role="tab" aria-selected="false">
+          <button type="button" class="filter-tab-btn" data-filter="mobile" role="tab" aria-selected="false">
             <i class="fa-solid fa-mobile-screen" aria-hidden="true"></i> Mobile & Apps
           </button>
         </div>
@@ -988,7 +988,7 @@
       </div>
     </section>
 
-    <!-- 6. TECNOLOGIAS & ARQUITETURA DE ALTA PERFORMANCE (NEW COMPONENT) -->
+    <!-- 6. TECNOLOGIAS & ARQUITETURA DE ALTA PERFORMANCE -->
     <section id="tecnologias" class="section tech-section">
       <div class="container">
         
@@ -1124,99 +1124,7 @@
       </div>
     </section>
 
-    <!-- 8. RESULTADOS & PROVA SOCIAL (DEPOIMENTOS) -->
-    <section class="section testimonials-section">
-      <div class="container">
-        
-        <div class="section-header">
-          <div class="section-tag">
-            <i class="fa-solid fa-star" aria-hidden="true"></i>
-            <span>Prova Social & Resultados</span>
-          </div>
-          <h2 class="section-title">O Que Dizem Quem Já Confia na Kmeleon.Devs</h2>
-          <p class="section-subtitle">
-            Veja como ajudamos empreendedores e empresas a transformar sua operação digital e multiplicar conversões.
-          </p>
-          <div class="section-line" aria-hidden="true"></div>
-        </div>
-
-        <div class="testimonials-grid">
-          
-          <div class="testimonial-card glass-panel">
-            <div class="test-stars" aria-label="Avaliação 5 estrelas">
-              <i class="fa-solid fa-star" aria-hidden="true"></i>
-              <i class="fa-solid fa-star" aria-hidden="true"></i>
-              <i class="fa-solid fa-star" aria-hidden="true"></i>
-              <i class="fa-solid fa-star" aria-hidden="true"></i>
-              <i class="fa-solid fa-star" aria-hidden="true"></i>
-            </div>
-            <p class="test-quote">
-              "A landing page desenvolvida pela Kmeleon.Devs dobrou nossa taxa de conversão no tráfego pago logo na primeira semana. O carregamento é instantâneo e o design ficou espetacular!"
-            </p>
-            <div class="test-author-row">
-              <div class="test-avatar">
-                <i class="fa-solid fa-user-tie" aria-hidden="true"></i>
-              </div>
-              <div class="test-author-info">
-                <strong>Carlos Mendes</strong>
-                <small>Diretor Comercial &bull; Setor Imobiliário</small>
-              </div>
-              <div class="test-metric-badge">+140% Leads</div>
-            </div>
-          </div>
-
-          <div class="testimonial-card glass-panel">
-            <div class="test-stars" aria-label="Avaliação 5 estrelas">
-              <i class="fa-solid fa-star" aria-hidden="true"></i>
-              <i class="fa-solid fa-star" aria-hidden="true"></i>
-              <i class="fa-solid fa-star" aria-hidden="true"></i>
-              <i class="fa-solid fa-star" aria-hidden="true"></i>
-              <i class="fa-solid fa-star" aria-hidden="true"></i>
-            </div>
-            <p class="test-quote">
-              "Eles desenvolveram nosso dashboard operacional sob medida em tempo recorde. Automatizamos rotinas que levavam 4 horas por dia e hoje rodam em 2 cliques."
-            </p>
-            <div class="test-author-row">
-              <div class="test-avatar">
-                <i class="fa-solid fa-user-gear" aria-hidden="true"></i>
-              </div>
-              <div class="test-author-info">
-                <strong>Renata Oliveira</strong>
-                <small>COO &bull; Logística & Distribuição</small>
-              </div>
-              <div class="test-metric-badge">-80% Tempo Manual</div>
-            </div>
-          </div>
-
-          <div class="testimonial-card glass-panel">
-            <div class="test-stars" aria-label="Avaliação 5 estrelas">
-              <i class="fa-solid fa-star" aria-hidden="true"></i>
-              <i class="fa-solid fa-star" aria-hidden="true"></i>
-              <i class="fa-solid fa-star" aria-hidden="true"></i>
-              <i class="fa-solid fa-star" aria-hidden="true"></i>
-              <i class="fa-solid fa-star" aria-hidden="true"></i>
-            </div>
-            <p class="test-quote">
-              "O atendimento e a clareza técnica da equipe são incomparáveis. Entenderam perfeitamente o nosso modelo de negócio e entregaram tudo sem complicações."
-            </p>
-            <div class="test-author-row">
-              <div class="test-avatar">
-                <i class="fa-solid fa-user-astronaut" aria-hidden="true"></i>
-              </div>
-              <div class="test-author-info">
-                <strong>Felipe Santiago</strong>
-                <small>Fundador &bull; Startup de Tecnologia</small>
-              </div>
-              <div class="test-metric-badge">Nota 10/10</div>
-            </div>
-          </div>
-
-        </div>
-
-      </div>
-    </section>
-
-    <!-- 9. PERGUNTAS FREQUENTES (FAQ ACCORDION - NEW ACCESSIBLE COMPONENT) -->
+    <!-- 8. PERGUNTAS FREQUENTES (FAQ ACCORDION) -->
     <section id="faq" class="section faq-section">
       <div class="container">
         
@@ -1235,7 +1143,7 @@
         <div class="faq-accordion-wrap">
           
           <div class="faq-item glass-panel">
-            <button class="faq-question-btn" aria-expanded="false">
+            <button type="button" class="faq-question-btn" aria-expanded="false">
               <span class="faq-q-title">Qual é o prazo médio de entrega de uma Landing Page?</span>
               <span class="faq-icon-arrow" aria-hidden="true"><i class="fa-solid fa-chevron-down"></i></span>
             </button>
@@ -1247,7 +1155,7 @@
           </div>
 
           <div class="faq-item glass-panel">
-            <button class="faq-question-btn" aria-expanded="false">
+            <button type="button" class="faq-question-btn" aria-expanded="false">
               <span class="faq-q-title">Como funcionam os Sistemas e Softwares Sob Medida?</span>
               <span class="faq-icon-arrow" aria-hidden="true"><i class="fa-solid fa-chevron-down"></i></span>
             </button>
@@ -1259,7 +1167,7 @@
           </div>
 
           <div class="faq-item glass-panel">
-            <button class="faq-question-btn" aria-expanded="false">
+            <button type="button" class="faq-question-btn" aria-expanded="false">
               <span class="faq-q-title">O site é otimizado para dispositivos móveis (smartphones)?</span>
               <span class="faq-icon-arrow" aria-hidden="true"><i class="fa-solid fa-chevron-down"></i></span>
             </button>
@@ -1271,7 +1179,7 @@
           </div>
 
           <div class="faq-item glass-panel">
-            <button class="faq-question-btn" aria-expanded="false">
+            <button type="button" class="faq-question-btn" aria-expanded="false">
               <span class="faq-q-title">Vocês oferecem suporte e manutenção após o lançamento?</span>
               <span class="faq-icon-arrow" aria-hidden="true"><i class="fa-solid fa-chevron-down"></i></span>
             </button>
@@ -1283,7 +1191,7 @@
           </div>
 
           <div class="faq-item glass-panel">
-            <button class="faq-question-btn" aria-expanded="false">
+            <button type="button" class="faq-question-btn" aria-expanded="false">
               <span class="faq-q-title">Como é feita a integração com o WhatsApp e CRM?</span>
               <span class="faq-icon-arrow" aria-hidden="true"><i class="fa-solid fa-chevron-down"></i></span>
             </button>
@@ -1295,7 +1203,7 @@
           </div>
 
           <div class="faq-item glass-panel">
-            <button class="faq-question-btn" aria-expanded="false">
+            <button type="button" class="faq-question-btn" aria-expanded="false">
               <span class="faq-q-title">Quais são as formas de pagamento disponíveis?</span>
               <span class="faq-icon-arrow" aria-hidden="true"><i class="fa-solid fa-chevron-down"></i></span>
             </button>
@@ -1311,7 +1219,7 @@
       </div>
     </section>
 
-    <!-- 10. CONTATO & BRIEFING RÁPIDO -->
+    <!-- 9. CONTATO & BRIEFING RÁPIDO -->
     <section id="contato" class="section cta-final-section">
       <div class="container">
         
@@ -1378,7 +1286,7 @@
               <span>Atendimento ágil e direto</span>
             </div>
             <div class="guarantee-item">
-              <i class="fa-solid fa-shield-check" aria-hidden="true"></i>
+              <i class="fa-solid fa-shield-halved" aria-hidden="true"></i>
               <span>Orçamento detalhado sem compromisso</span>
             </div>
             <div class="guarantee-item">
@@ -1457,7 +1365,7 @@
 
   <!-- Floating WhatsApp & Back to Top Buttons -->
   <div class="floating-actions">
-    <button id="back-to-top" class="floating-btn back-to-top-btn" aria-label="Voltar ao topo" title="Voltar ao topo">
+    <button id="back-to-top" class="floating-btn back-to-top-btn" aria-label="Voltar ao topo" title="Voltar ao topo" type="button">
       <i class="fa-solid fa-chevron-up" aria-hidden="true"></i>
     </button>
     <a href="https://wa.me/5511988850424?text=Ol%C3%A1!%20Gostaria%20de%20um%20or%C3%A7amento%20com%20a%20Kmeleon.Devs." target="_blank" rel="noopener noreferrer" class="floating-btn whatsapp-floating-btn" aria-label="Conversar no WhatsApp" title="Fale conosco no WhatsApp">
