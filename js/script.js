@@ -26,8 +26,6 @@ document.addEventListener('DOMContentLoaded', () => {
   // 1. GERENCIAMENTO DE TEMA (CLARO / ESCURO)
   // --------------------------------------------------------------------------
   const themeToggleBtn = document.getElementById('theme-toggle');
-  const sidebarThemeToggle = document.getElementById('sidebar-theme-toggle');
-  const sidebarThemeText = document.getElementById('sidebar-theme-text');
   const metaThemeColor = document.getElementById('meta-theme-color');
   const htmlRoot = document.documentElement;
 
@@ -39,10 +37,6 @@ document.addEventListener('DOMContentLoaded', () => {
     
     if (metaThemeColor) {
       metaThemeColor.setAttribute('content', isDark ? '#070D09' : '#EBF8EB');
-    }
-
-    if (sidebarThemeText) {
-      sidebarThemeText.textContent = isDark ? 'Alternar para Modo Claro' : 'Alternar para Modo Escuro';
     }
 
     localStorage.setItem(THEME_STORAGE_KEY, theme);
@@ -64,9 +58,6 @@ document.addEventListener('DOMContentLoaded', () => {
 
   if (themeToggleBtn) {
     themeToggleBtn.addEventListener('click', toggleTheme);
-  }
-  if (sidebarThemeToggle) {
-    sidebarThemeToggle.addEventListener('click', toggleTheme);
   }
 
   // --------------------------------------------------------------------------
@@ -345,50 +336,7 @@ document.addEventListener('DOMContentLoaded', () => {
   }
 
   // --------------------------------------------------------------------------
-  // 9. MENU LATERAL (SIDEBAR / DRAWER)
-  // --------------------------------------------------------------------------
-  const sidebarDrawer = document.getElementById('sidebar-nav');
-  const sidebarOverlay = document.getElementById('sidebar-overlay');
-  const sidebarOpenBtn = document.getElementById('sidebar-open-btn');
-  const sidebarCloseBtn = document.getElementById('sidebar-close-btn');
-  const sidebarLinks = document.querySelectorAll('.sidebar-link');
-
-  function openSidebar() {
-    if (!sidebarDrawer || !sidebarOverlay) return;
-    sidebarDrawer.classList.add('active');
-    sidebarOverlay.classList.add('active');
-    sidebarDrawer.setAttribute('aria-hidden', 'false');
-    sidebarOverlay.setAttribute('aria-hidden', 'false');
-    if (sidebarOpenBtn) sidebarOpenBtn.setAttribute('aria-expanded', 'true');
-    document.body.style.overflow = 'hidden';
-  }
-
-  function closeSidebar() {
-    if (!sidebarDrawer || !sidebarOverlay) return;
-    sidebarDrawer.classList.remove('active');
-    sidebarOverlay.classList.remove('active');
-    sidebarDrawer.setAttribute('aria-hidden', 'true');
-    sidebarOverlay.setAttribute('aria-hidden', 'true');
-    if (sidebarOpenBtn) sidebarOpenBtn.setAttribute('aria-expanded', 'false');
-    document.body.style.overflow = '';
-  }
-
-  if (sidebarOpenBtn) sidebarOpenBtn.addEventListener('click', openSidebar);
-  if (sidebarCloseBtn) sidebarCloseBtn.addEventListener('click', closeSidebar);
-  if (sidebarOverlay) sidebarOverlay.addEventListener('click', closeSidebar);
-
-  sidebarLinks.forEach(link => {
-    link.addEventListener('click', closeSidebar);
-  });
-
-  document.addEventListener('keydown', (e) => {
-    if (e.key === 'Escape' && sidebarDrawer && sidebarDrawer.classList.contains('active')) {
-      closeSidebar();
-    }
-  });
-
-  // --------------------------------------------------------------------------
-  // 10. SCROLLSPY (DESTAQUE AUTOMÁTICO DE NAVEGAÇÃO DESKTOP & MOBILE DOCK)
+  // 9. SCROLLSPY (DESTAQUE AUTOMÁTICO DE NAVEGAÇÃO DESKTOP & MOBILE DOCK)
   // --------------------------------------------------------------------------
   const sections = document.querySelectorAll('main section[id]');
   const desktopNavLinks = document.querySelectorAll('.desktop-nav .nav-link');
@@ -404,13 +352,6 @@ document.addEventListener('DOMContentLoaded', () => {
 
       if (scrollY >= sectionTop && scrollY < sectionTop + sectionHeight) {
         desktopNavLinks.forEach(link => {
-          link.classList.remove('active');
-          if (link.getAttribute('href') === `#${sectionId}`) {
-            link.classList.add('active');
-          }
-        });
-
-        sidebarLinks.forEach(link => {
           link.classList.remove('active');
           if (link.getAttribute('href') === `#${sectionId}`) {
             link.classList.add('active');
