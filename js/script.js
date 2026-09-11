@@ -388,17 +388,18 @@ document.addEventListener('DOMContentLoaded', () => {
   });
 
   // --------------------------------------------------------------------------
-  // 10. SCROLLSPY (DESTAQUE AUTOMÁTICO DE NAVEGAÇÃO)
+  // 10. SCROLLSPY (DESTAQUE AUTOMÁTICO DE NAVEGAÇÃO DESKTOP & MOBILE DOCK)
   // --------------------------------------------------------------------------
   const sections = document.querySelectorAll('main section[id]');
   const desktopNavLinks = document.querySelectorAll('.desktop-nav .nav-link');
+  const mobileTabLinks = document.querySelectorAll('.mobile-tab-bar .mobile-tab-item[href^="#"]');
 
   function updateActiveNavOnScroll() {
     const scrollY = window.pageYOffset || document.documentElement.scrollTop;
 
     sections.forEach(section => {
       const sectionHeight = section.offsetHeight;
-      const sectionTop = section.offsetTop - 140;
+      const sectionTop = section.offsetTop - 150;
       const sectionId = section.getAttribute('id');
 
       if (scrollY >= sectionTop && scrollY < sectionTop + sectionHeight) {
@@ -415,11 +416,34 @@ document.addEventListener('DOMContentLoaded', () => {
             link.classList.add('active');
           }
         });
+
+        mobileTabLinks.forEach(link => {
+          link.classList.remove('active');
+          if (link.getAttribute('href') === `#${sectionId}`) {
+            link.classList.add('active');
+          }
+        });
       }
     });
   }
 
   window.addEventListener('scroll', updateActiveNavOnScroll, { passive: true });
+  updateActiveNavOnScroll();
+
+  mobileTabLinks.forEach(tab => {
+    tab.addEventListener('click', (e) => {
+      const targetId = tab.getAttribute('href');
+      if (targetId && targetId.startsWith('#')) {
+        const targetElement = document.querySelector(targetId);
+        if (targetElement) {
+          e.preventDefault();
+          targetElement.scrollIntoView({ behavior: 'smooth' });
+          mobileTabLinks.forEach(t => t.classList.remove('active'));
+          tab.classList.add('active');
+        }
+      }
+    });
+  });
 
   // --------------------------------------------------------------------------
   // 11. BOTÃO VOLTAR AO TOPO
