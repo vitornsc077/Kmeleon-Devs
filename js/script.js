@@ -197,13 +197,13 @@ document.addEventListener('DOMContentLoaded', () => {
 
     // 4. Monta link dinâmico de WhatsApp
     if (simWhatsappCta) {
-      const phone = '5511988850424';
+      const phone = '5511971689200';
       const featuresText = selectedFeatures.map(f => `  • ${f}`).join('\n');
-      const message = `Olá Kmeleon.Devs! Montei meu projeto no simulador do site e gostaria de um orçamento:\n\n` +
-                      `🚀 *Tipo de Solução:* ${selectedType}\n` +
-                      `⚙️ *Recursos Desejados:*\n${featuresText}\n` +
-                      `⏱️ *Prazo:* ${selectedUrgency}\n\n` +
-                      `Como podemos prosseguir?`;
+      const message = `Olá Kmeleon Devs! Montei uma ideia no simulador do site e gostaria de conversar sobre um orçamento:\n\n` +
+                      `📌 *Tipo:* ${selectedType}\n` +
+                      `⚙️ *Recursos que preciso:*\n${featuresText}\n` +
+                      `⏱️ *Previsão de prazo:* ${selectedUrgency}\n\n` +
+                      `Podemos conversar?`;
 
       simWhatsappCta.href = `https://wa.me/${phone}?text=${encodeURIComponent(message)}`;
     }
@@ -333,11 +333,11 @@ document.addEventListener('DOMContentLoaded', () => {
         return;
       }
 
-      const phone = '5511988850424';
-      const msgText = `Olá Kmeleon.Devs! Meu nome é *${name}* (${whatsapp}).\n` +
+      const phone = '5511971689200';
+      const msgText = `Olá Kmeleon Devs! Meu nome é *${name}* (${whatsapp}).\n` +
                       `Tenho interesse em: *${solution}*.\n` +
-                      (message ? `Mensagem: "${message}"\n` : '') +
-                      `Gostaria de agendar uma conversa sobre meu projeto.`;
+                      (message ? `Detalhes: "${message}"\n` : '') +
+                      `Gostaria de conversar sobre meu projeto.`;
 
       const whatsappUrl = `https://wa.me/${phone}?text=${encodeURIComponent(msgText)}`;
       window.open(whatsappUrl, '_blank');
