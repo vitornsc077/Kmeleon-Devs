@@ -140,7 +140,7 @@ document.addEventListener('DOMContentLoaded', () => {
   }
 
   // --------------------------------------------------------------------------
-  // 5. SIMULADOR DE PROJETOS & ORÇAMENTO INTERATIVO
+  // 5. SIMULADOR DE PROJETOS & ORÇAMENTO INTERATIVO (DEFENSIVO)
   // --------------------------------------------------------------------------
   const simTypeCards = document.querySelectorAll('.sim-option-card[data-type="type"]');
   const simUrgencyCards = document.querySelectorAll('.sim-urgency-card[data-type="urgency"]');
@@ -151,94 +151,88 @@ document.addEventListener('DOMContentLoaded', () => {
   const sumUrgencyVal = document.getElementById('sum-urgency-val');
   const simWhatsappCta = document.getElementById('sim-whatsapp-cta');
 
-  let selectedType = 'Landing Page de Alta Conversão';
-  let selectedUrgency = 'Ágil Padrão';
+  if (simTypeCards.length > 0) {
+    let selectedType = 'Landing Page de Alta Conversão';
+    let selectedUrgency = 'Ágil Padrão';
 
-  function updateSimulatorSummary() {
-    // 1. Atualiza Tipo
-    if (sumTypeVal) sumTypeVal.textContent = selectedType;
+    function updateSimulatorSummary() {
+      if (sumTypeVal) sumTypeVal.textContent = selectedType;
 
-    // 2. Atualiza Recursos
-    const selectedFeatures = [];
-    simFeatureCheckboxes.forEach(cb => {
-      const parentLabel = cb.closest('.sim-checkbox-card');
-      if (cb.checked) {
-        selectedFeatures.push(cb.value);
-        if (parentLabel) parentLabel.classList.add('active');
-      } else {
-        if (parentLabel) parentLabel.classList.remove('active');
+      const selectedFeatures = [];
+      simFeatureCheckboxes.forEach(cb => {
+        const parentLabel = cb.closest('.sim-checkbox-card');
+        if (cb.checked) {
+          selectedFeatures.push(cb.value);
+          if (parentLabel) parentLabel.classList.add('active');
+        } else {
+          if (parentLabel) parentLabel.classList.remove('active');
+        }
+      });
+
+      if (sumFeaturesList) {
+        sumFeaturesList.innerHTML = '';
+        if (selectedFeatures.length === 0) {
+          sumFeaturesList.innerHTML = '<li><i class="fa-solid fa-circle-info" aria-hidden="true"></i> Selecione ao menos 1 recurso</li>';
+        } else {
+          selectedFeatures.forEach(feat => {
+            const li = document.createElement('li');
+            li.innerHTML = `<i class="fa-solid fa-check" aria-hidden="true"></i> ${feat}`;
+            sumFeaturesList.appendChild(li);
+          });
+        }
       }
-    });
 
-    if (sumFeaturesList) {
-      sumFeaturesList.innerHTML = '';
-      if (selectedFeatures.length === 0) {
-        sumFeaturesList.innerHTML = '<li><i class="fa-solid fa-circle-info" aria-hidden="true"></i> Selecione ao menos 1 recurso</li>';
-      } else {
-        selectedFeatures.forEach(feat => {
-          const li = document.createElement('li');
-          li.innerHTML = `<i class="fa-solid fa-check" aria-hidden="true"></i> ${feat}`;
-          sumFeaturesList.appendChild(li);
+      if (sumUrgencyVal) sumUrgencyVal.textContent = selectedUrgency;
+
+      if (simWhatsappCta) {
+        const phone = '5511971689200';
+        const featuresText = selectedFeatures.map(f => `  • ${f}`).join('\n');
+        const message = `Olá Kmeleon Devs! Montei uma ideia no simulador do site e gostaria de conversar sobre um orçamento:\n\n` +
+                        `📌 *Tipo:* ${selectedType}\n` +
+                        `⚙️ *Recursos que preciso:*\n${featuresText}\n` +
+                        `⏱️ *Previsão de prazo:* ${selectedUrgency}\n\n` +
+                        `Podemos conversar?`;
+
+        simWhatsappCta.href = `https://wa.me/${phone}?text=${encodeURIComponent(message)}`;
+      }
+    }
+
+    simTypeCards.forEach(card => {
+      card.addEventListener('click', (e) => {
+        e.preventDefault();
+        simTypeCards.forEach(c => {
+          c.classList.remove('active');
+          c.setAttribute('aria-checked', 'false');
         });
-      }
-    }
+        card.classList.add('active');
+        card.setAttribute('aria-checked', 'true');
+        selectedType = card.getAttribute('data-value') || 'Landing Page de Alta Conversão';
+        updateSimulatorSummary();
+      });
+    });
 
-    // 3. Atualiza Urgência
-    if (sumUrgencyVal) sumUrgencyVal.textContent = selectedUrgency;
+    simFeatureCheckboxes.forEach(cb => {
+      cb.addEventListener('change', () => {
+        updateSimulatorSummary();
+      });
+    });
 
-    // 4. Monta link dinâmico de WhatsApp
-    if (simWhatsappCta) {
-      const phone = '5511971689200';
-      const featuresText = selectedFeatures.map(f => `  • ${f}`).join('\n');
-      const message = `Olá Kmeleon Devs! Montei uma ideia no simulador do site e gostaria de conversar sobre um orçamento:\n\n` +
-                      `📌 *Tipo:* ${selectedType}\n` +
-                      `⚙️ *Recursos que preciso:*\n${featuresText}\n` +
-                      `⏱️ *Previsão de prazo:* ${selectedUrgency}\n\n` +
-                      `Podemos conversar?`;
+    simUrgencyCards.forEach(card => {
+      card.addEventListener('click', (e) => {
+        e.preventDefault();
+        simUrgencyCards.forEach(c => {
+          c.classList.remove('active');
+          c.setAttribute('aria-checked', 'false');
+        });
+        card.classList.add('active');
+        card.setAttribute('aria-checked', 'true');
+        selectedUrgency = card.getAttribute('data-value') || 'Ágil Padrão';
+        updateSimulatorSummary();
+      });
+    });
 
-      simWhatsappCta.href = `https://wa.me/${phone}?text=${encodeURIComponent(message)}`;
-    }
+    updateSimulatorSummary();
   }
-
-  // Event Listeners para Tipo de Projeto
-  simTypeCards.forEach(card => {
-    card.addEventListener('click', (e) => {
-      e.preventDefault();
-      simTypeCards.forEach(c => {
-        c.classList.remove('active');
-        c.setAttribute('aria-checked', 'false');
-      });
-      card.classList.add('active');
-      card.setAttribute('aria-checked', 'true');
-      selectedType = card.getAttribute('data-value') || 'Landing Page de Alta Conversão';
-      updateSimulatorSummary();
-    });
-  });
-
-  // Event Listeners para Recursos
-  simFeatureCheckboxes.forEach(cb => {
-    cb.addEventListener('change', () => {
-      updateSimulatorSummary();
-    });
-  });
-
-  // Event Listeners para Urgência
-  simUrgencyCards.forEach(card => {
-    card.addEventListener('click', (e) => {
-      e.preventDefault();
-      simUrgencyCards.forEach(c => {
-        c.classList.remove('active');
-        c.setAttribute('aria-checked', 'false');
-      });
-      card.classList.add('active');
-      card.setAttribute('aria-checked', 'true');
-      selectedUrgency = card.getAttribute('data-value') || 'Ágil Padrão';
-      updateSimulatorSummary();
-    });
-  });
-
-  // Inicializa o simulador
-  updateSimulatorSummary();
 
   // --------------------------------------------------------------------------
   // 6. VITRINE COM FILTROS DE CATEGORIA (SHOWCASE TABS)
