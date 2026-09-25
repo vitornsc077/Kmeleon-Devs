@@ -36,7 +36,7 @@ document.addEventListener('DOMContentLoaded', () => {
     htmlRoot.setAttribute('data-theme', theme);
     
     if (metaThemeColor) {
-      metaThemeColor.setAttribute('content', isDark ? '#070D09' : '#EBF8EB');
+      metaThemeColor.setAttribute('content', isDark ? '#0C1A12' : '#F0FDF4');
     }
 
     localStorage.setItem(THEME_STORAGE_KEY, theme);

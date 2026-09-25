@@ -9,7 +9,7 @@
   <meta name="description" content="Criamos landing pages rápidas e sistemas sob medida para a sua empresa. Código próprio, foco no seu resultado e suporte de verdade.">
   <meta name="keywords" content="Kmeleon Devs, landing page, desenvolvimento de software, sistemas sob medida, criação de sites, tecnologia">
   <meta name="author" content="Kmeleon Devs">
-  <meta name="theme-color" content="#E8F8E8" id="meta-theme-color">
+  <meta name="theme-color" content="#F0FDF4" id="meta-theme-color">
 
   <!-- Open Graph / Social Media -->
   <meta property="og:type" content="website">
@@ -70,6 +70,7 @@
           <li><a href="#diferenciais" class="nav-link">Diferenciais</a></li>
           <li><a href="#solucoes" class="nav-link">Soluções</a></li>
           <li><a href="#produtos" class="nav-link">Vitrine</a></li>
+          <li><a href="#tecnologias" class="nav-link">Tecnologias</a></li>
           <li><a href="#faq" class="nav-link">FAQ</a></li>
         </ul>
       </nav>
@@ -147,14 +148,14 @@
             <div class="stat-divider" aria-hidden="true"></div>
             <div class="stat-item">
               <div class="stat-number-wrap">
-                <span class="stat-label-icon"><i class="fa-solid fa-mobile-screen" style="font-size: 1.5rem; color: var(--neon-green);"></i></span>
+                <span class="stat-label-icon"><i class="fa-solid fa-mobile-screen" style="font-size: 1.5rem; color: var(--pastel-green-btn);"></i></span>
               </div>
               <span class="stat-label">Mobile-First</span>
             </div>
             <div class="stat-divider" aria-hidden="true"></div>
             <div class="stat-item">
               <div class="stat-number-wrap">
-                <span class="stat-label-icon"><i class="fa-solid fa-user-check" style="font-size: 1.5rem; color: var(--neon-green);"></i></span>
+                <span class="stat-label-icon"><i class="fa-solid fa-user-check" style="font-size: 1.5rem; color: var(--pastel-green-btn);"></i></span>
               </div>
               <span class="stat-label">Contato Direto</span>
             </div>
@@ -205,12 +206,19 @@
       </div>
     </section>
 
-    <!-- 2. DIFERENCIAIS (ESTILO ANYDESK) -->
-    <section id="diferenciais" class="section differentials-section">
+    <!-- SEPARATOR: Hero -> Diferenciais -->
+    <div class="section-divider divider-hero-diferenciais" aria-hidden="true">
+      <svg viewBox="0 0 1440 48" fill="none" preserveAspectRatio="none">
+        <path class="fill-bg-warm" d="M0,0 C360,48 1080,48 1440,0 L1440,48 L0,48 Z"></path>
+      </svg>
+    </div>
+
+    <!-- 2. DIFERENCIAIS (QUEBRA DE COR ÂMBAR PASTEL) -->
+    <section id="diferenciais" class="section differentials-section section-warm">
       <div class="container">
         
         <div class="section-header">
-          <div class="section-tag">
+          <div class="section-tag badge-warm">
             <i class="fa-solid fa-star" aria-hidden="true"></i>
             <span>Diferenciais</span>
           </div>
@@ -218,12 +226,12 @@
           <p class="section-subtitle">
             Desenvolvimento sob medida, entrega ágil e foco total em resultados práticos.
           </p>
-          <div class="section-line" aria-hidden="true"></div>
+          <div class="section-line section-line-warm" aria-hidden="true"></div>
         </div>
 
         <div class="differentials-grid">
           
-          <div class="differential-card glass-panel">
+          <div class="differential-card glass-panel card-warm">
             <div class="differential-icon-box">
               <i class="fa-solid fa-bolt" aria-hidden="true"></i>
             </div>
@@ -233,7 +241,7 @@
             </div>
           </div>
 
-          <div class="differential-card glass-panel">
+          <div class="differential-card glass-panel card-warm">
             <div class="differential-icon-box">
               <i class="fa-solid fa-shield-halved" aria-hidden="true"></i>
             </div>
@@ -243,7 +251,7 @@
             </div>
           </div>
 
-          <div class="differential-card glass-panel">
+          <div class="differential-card glass-panel card-warm">
             <div class="differential-icon-box">
               <i class="fa-solid fa-mobile-screen" aria-hidden="true"></i>
             </div>
@@ -253,7 +261,7 @@
             </div>
           </div>
 
-          <div class="differential-card glass-panel">
+          <div class="differential-card glass-panel card-warm">
             <div class="differential-icon-box">
               <i class="fa-solid fa-comments" aria-hidden="true"></i>
             </div>
@@ -268,8 +276,15 @@
       </div>
     </section>
 
-    <!-- 3. SOLUÇÕES -->
-    <section id="solucoes" class="section services-section">
+    <!-- SEPARATOR: Diferenciais -> Soluções -->
+    <div class="section-divider divider-diferenciais-solucoes" aria-hidden="true">
+      <svg viewBox="0 0 1440 48" fill="none" preserveAspectRatio="none">
+        <path class="fill-bg-secondary" d="M0,24 C480,48 960,0 1440,24 L1440,48 L0,48 Z"></path>
+      </svg>
+    </div>
+
+    <!-- 3. SOLUÇÕES (MINT PASTEL & MULTI-DISPOSITIVOS) -->
+    <section id="solucoes" class="section services-section section-secondary-bg">
       <div class="container">
         
         <div class="section-header">
@@ -282,6 +297,25 @@
             Três soluções práticas e modernas para acelerar suas vendas e organizar sua operação.
           </p>
           <div class="section-line" aria-hidden="true"></div>
+        </div>
+
+        <!-- Visual Showcase Banner: Multi-dispositivos & Telas Sob Medida -->
+        <div class="solutions-visual-banner">
+          <div class="solutions-visual-img-wrap">
+            <img src="imagens/brand/devices-dashboard-mockup.jpg" alt="Ecossistema de dispositivos e painéis desenvolvidos pela Kmeleon Devs" class="solutions-visual-img" loading="lazy">
+          </div>
+          <div class="solutions-visual-info">
+            <span class="solutions-visual-tag"><i class="fa-solid fa-laptop-code"></i> Ecossistema Completo</span>
+            <h3 class="solutions-visual-title">Soluções que se adaptam a qualquer tela e rotina</h3>
+            <p class="solutions-visual-desc">
+              De landing pages de alta conversão a sistemas de gestão completos, cada projeto é desenhado com foco em simplicidade, velocidade e na realidade operacional da sua empresa.
+            </p>
+            <div class="solutions-visual-features">
+              <span class="solutions-visual-pill"><i class="fa-solid fa-bolt"></i> Carga &lt; 1s</span>
+              <span class="solutions-visual-pill"><i class="fa-solid fa-shield-halved"></i> Código 100% Próprio</span>
+              <span class="solutions-visual-pill"><i class="fa-solid fa-mobile-screen"></i> Mobile-First</span>
+            </div>
+          </div>
         </div>
 
         <div class="services-grid">
@@ -410,6 +444,13 @@
 
       </div>
     </section>
+
+    <!-- SEPARATOR: Soluções -> Vitrine -->
+    <div class="section-divider divider-solucoes-produtos" aria-hidden="true">
+      <svg viewBox="0 0 1440 48" fill="none" preserveAspectRatio="none">
+        <path class="fill-bg-primary" d="M0,0 L1440,48 L0,48 Z"></path>
+      </svg>
+    </div>
 
     <!-- 4. PRODUTOS / VITRINE (COM ABAS DE FILTRO INTERATIVAS) -->
     <section id="produtos" class="section showcase-section">
@@ -706,8 +747,15 @@
       </div>
     </section>
 
-    <!-- 6. TECNOLOGIAS & ARQUITETURA DE ALTA PERFORMANCE -->
-    <section id="tecnologias" class="section tech-section">
+    <!-- SEPARATOR: Vitrine -> Tecnologias -->
+    <div class="section-divider divider-produtos-tecnologias" aria-hidden="true">
+      <svg viewBox="0 0 1440 48" fill="none" preserveAspectRatio="none">
+        <path class="fill-bg-secondary" d="M0,48 L1440,0 L1440,48 Z"></path>
+      </svg>
+    </div>
+
+    <!-- 5. TECNOLOGIAS & ARQUITETURA DE ALTA PERFORMANCE (PATTERN TECH) -->
+    <section id="tecnologias" class="section tech-section tech-section-pattern">
       <div class="container">
         
         <div class="section-header">
@@ -783,12 +831,19 @@
       </div>
     </section>
 
-    <!-- 7. FLUXO DE TRABALHO ÁGIL (MÉTODO KMELEON.DEVS) -->
-    <section class="section workflow-section">
+    <!-- SEPARATOR: Tecnologias -> Fluxo de Trabalho -->
+    <div class="section-divider divider-tecnologias-workflow" aria-hidden="true">
+      <svg viewBox="0 0 1440 48" fill="none" preserveAspectRatio="none">
+        <path class="fill-bg-warm" d="M0,24 C360,0 1080,48 1440,24 L1440,48 L0,48 Z"></path>
+      </svg>
+    </div>
+
+    <!-- 6. FLUXO DE TRABALHO ÁGIL (QUEBRA DE COR ÂMBAR) -->
+    <section class="section workflow-section section-warm">
       <div class="container">
         
         <div class="section-header">
-          <div class="section-tag">
+          <div class="section-tag badge-warm">
             <i class="fa-solid fa-gears" aria-hidden="true"></i>
             <span>Como Trabalhamos</span>
           </div>
@@ -796,7 +851,7 @@
           <p class="section-subtitle">
             Um processo transparente e direto para você acompanhar cada etapa sem dor de cabeça.
           </p>
-          <div class="section-line" aria-hidden="true"></div>
+          <div class="section-line section-line-warm" aria-hidden="true"></div>
         </div>
 
         <div class="steps-grid">
@@ -842,6 +897,13 @@
       </div>
     </section>
 
+    <!-- SEPARATOR: Fluxo de Trabalho -> FAQ -->
+    <div class="section-divider divider-workflow-faq" aria-hidden="true">
+      <svg viewBox="0 0 1440 48" fill="none" preserveAspectRatio="none">
+        <path class="fill-bg-primary" d="M0,0 C480,48 960,48 1440,0 L1440,48 L0,48 Z"></path>
+      </svg>
+    </div>
+
     <!-- 8. PERGUNTAS FREQUENTES (FAQ ACCORDION) -->
     <section id="faq" class="section faq-section">
       <div class="container">
@@ -858,78 +920,105 @@
           <div class="section-line" aria-hidden="true"></div>
         </div>
 
-        <div class="faq-accordion-wrap">
+        <div class="faq-layout-wrap">
           
-          <div class="faq-item glass-panel">
-            <button type="button" class="faq-question-btn" aria-expanded="false">
-              <span class="faq-q-title">Qual é o prazo médio de entrega de uma landing page?</span>
-              <span class="faq-icon-arrow" aria-hidden="true"><i class="fa-solid fa-chevron-down"></i></span>
-            </button>
-            <div class="faq-answer-content">
-              <div class="faq-answer-inner">
-                <p>Landing pages são entregues em média de <strong>5 a 10 dias úteis</strong>, com estrutura pronta para anúncios e botão de WhatsApp configurado.</p>
+          <!-- Brand Companion Card: Imagem Abstrata Camaleão & Suporte -->
+          <div class="faq-brand-card">
+            <div class="faq-brand-img-wrap">
+              <img src="imagens/brand/chameleon-abstract-hero.jpg" alt="Ilustração de circuitos digitais em formato de camaleão Kmeleon Devs" class="faq-brand-img" loading="lazy">
+              <div class="faq-brand-badge">
+                <i class="fa-solid fa-code" aria-hidden="true"></i> Código Sob Medida
+              </div>
+            </div>
+            <div class="faq-brand-content">
+              <h3 class="faq-brand-title">Tem alguma dúvida específica sobre o seu projeto?</h3>
+              <p class="faq-brand-desc">
+                Nossa equipe responde rápido diretamente no WhatsApp. Conversamos sem compromisso para entender o que a sua empresa precisa.
+              </p>
+              <div class="faq-brand-cta">
+                <a href="https://wa.me/5511971689200?text=Ol%C3%A1!%20Gostaria%20de%20tirar%20uma%20d%C3%BAvida%20sobre%20um%20projeto%20com%20a%20Kmeleon%20Devs." target="_blank" rel="noopener noreferrer" class="btn btn-neon btn-block">
+                  <i class="fa-brands fa-whatsapp" aria-hidden="true"></i>
+                  <span>Falar com Desenvolvedor</span>
+                </a>
               </div>
             </div>
           </div>
 
-          <div class="faq-item glass-panel">
-            <button type="button" class="faq-question-btn" aria-expanded="false">
-              <span class="faq-q-title">Como funciona o desenvolvimento de um sistema sob medida?</span>
-              <span class="faq-icon-arrow" aria-hidden="true"><i class="fa-solid fa-chevron-down"></i></span>
-            </button>
-            <div class="faq-answer-content">
-              <div class="faq-answer-inner">
-                <p>Mapeamos suas rotinas, aprovamos o visual das telas e programamos o software em etapas modulares para você testar no dia a dia.</p>
+          <!-- FAQ Accordion -->
+          <div class="faq-accordion-wrap">
+            
+            <div class="faq-item glass-panel">
+              <button type="button" class="faq-question-btn" aria-expanded="false">
+                <span class="faq-q-title">Qual é o prazo médio de entrega de uma landing page?</span>
+                <span class="faq-icon-arrow" aria-hidden="true"><i class="fa-solid fa-chevron-down"></i></span>
+              </button>
+              <div class="faq-answer-content">
+                <div class="faq-answer-inner">
+                  <p>Landing pages são entregues em média de <strong>5 a 10 dias úteis</strong>, com estrutura pronta para anúncios e botão de WhatsApp configurado.</p>
+                </div>
               </div>
             </div>
-          </div>
 
-          <div class="faq-item glass-panel">
-            <button type="button" class="faq-question-btn" aria-expanded="false">
-              <span class="faq-q-title">O site ou sistema funciona bem no celular?</span>
-              <span class="faq-icon-arrow" aria-hidden="true"><i class="fa-solid fa-chevron-down"></i></span>
-            </button>
-            <div class="faq-answer-content">
-              <div class="faq-answer-inner">
-                <p><strong>Sim, 100%.</strong> Desenvolvemos com arquitetura mobile-first para garantir carregamento veloz (&lt; 1s) e navegação perfeita em qualquer smartphone.</p>
+            <div class="faq-item glass-panel">
+              <button type="button" class="faq-question-btn" aria-expanded="false">
+                <span class="faq-q-title">Como funciona o desenvolvimento de um sistema sob medida?</span>
+                <span class="faq-icon-arrow" aria-hidden="true"><i class="fa-solid fa-chevron-down"></i></span>
+              </button>
+              <div class="faq-answer-content">
+                <div class="faq-answer-inner">
+                  <p>Mapeamos suas rotinas, aprovamos o visual das telas e programamos o software em etapas modulares para você testar no dia a dia.</p>
+                </div>
               </div>
             </div>
-          </div>
 
-          <div class="faq-item glass-panel">
-            <button type="button" class="faq-question-btn" aria-expanded="false">
-              <span class="faq-q-title">Vocês oferecem suporte após a entrega?</span>
-              <span class="faq-icon-arrow" aria-hidden="true"><i class="fa-solid fa-chevron-down"></i></span>
-            </button>
-            <div class="faq-answer-content">
-              <div class="faq-answer-inner">
-                <p>Com certeza. Todos os projetos contam com <strong>garantia técnica</strong>, treinamento de uso e suporte direto com quem programou seu sistema.</p>
+            <div class="faq-item glass-panel">
+              <button type="button" class="faq-question-btn" aria-expanded="false">
+                <span class="faq-q-title">O site ou sistema funciona bem no celular?</span>
+                <span class="faq-icon-arrow" aria-hidden="true"><i class="fa-solid fa-chevron-down"></i></span>
+              </button>
+              <div class="faq-answer-content">
+                <div class="faq-answer-inner">
+                  <p><strong>Sim, 100%.</strong> Desenvolvemos com arquitetura mobile-first para garantir carregamento veloz (&lt; 1s) e navegação perfeita em qualquer smartphone.</p>
+                </div>
               </div>
             </div>
-          </div>
 
-          <div class="faq-item glass-panel">
-            <button type="button" class="faq-question-btn" aria-expanded="false">
-              <span class="faq-q-title">Como chegam os contatos dos clientes?</span>
-              <span class="faq-icon-arrow" aria-hidden="true"><i class="fa-solid fa-chevron-down"></i></span>
-            </button>
-            <div class="faq-answer-content">
-              <div class="faq-answer-inner">
-                <p>Diretamente no seu <strong>WhatsApp</strong> comercial com texto pré-definido, ou integrados a formulários, e-mails, planilhas e CRM.</p>
+            <div class="faq-item glass-panel">
+              <button type="button" class="faq-question-btn" aria-expanded="false">
+                <span class="faq-q-title">Vocês oferecem suporte após a entrega?</span>
+                <span class="faq-icon-arrow" aria-hidden="true"><i class="fa-solid fa-chevron-down"></i></span>
+              </button>
+              <div class="faq-answer-content">
+                <div class="faq-answer-inner">
+                  <p>Com certeza. Todos os projetos contam com <strong>garantia técnica</strong>, treinamento de uso e suporte direto com quem programou seu sistema.</p>
+                </div>
               </div>
             </div>
-          </div>
 
-          <div class="faq-item glass-panel">
-            <button type="button" class="faq-question-btn" aria-expanded="false">
-              <span class="faq-q-title">Quais são as formas de pagamento?</span>
-              <span class="faq-icon-arrow" aria-hidden="true"><i class="fa-solid fa-chevron-down"></i></span>
-            </button>
-            <div class="faq-answer-content">
-              <div class="faq-answer-inner">
-                <p>Facilitamos via <strong>Pix, transferência ou parcelamento no cartão de crédito</strong>, com etapas de pagamento atreladas às entregas.</p>
+            <div class="faq-item glass-panel">
+              <button type="button" class="faq-question-btn" aria-expanded="false">
+                <span class="faq-q-title">Como chegam os contatos dos clientes?</span>
+                <span class="faq-icon-arrow" aria-hidden="true"><i class="fa-solid fa-chevron-down"></i></span>
+              </button>
+              <div class="faq-answer-content">
+                <div class="faq-answer-inner">
+                  <p>Diretamente no seu <strong>WhatsApp</strong> comercial com texto pré-definido, ou integrados a formulários, e-mails, planilhas e CRM.</p>
+                </div>
               </div>
             </div>
+
+            <div class="faq-item glass-panel">
+              <button type="button" class="faq-question-btn" aria-expanded="false">
+                <span class="faq-q-title">Quais são as formas de pagamento?</span>
+                <span class="faq-icon-arrow" aria-hidden="true"><i class="fa-solid fa-chevron-down"></i></span>
+              </button>
+              <div class="faq-answer-content">
+                <div class="faq-answer-inner">
+                  <p>Facilitamos via <strong>Pix, transferência ou parcelamento no cartão de crédito</strong>, com etapas de pagamento atreladas às entregas.</p>
+                </div>
+              </div>
+            </div>
+
           </div>
 
         </div>
@@ -937,6 +1026,13 @@
       </div>
     </section>
   </main>
+
+  <!-- SEPARATOR: FAQ -> Footer -->
+  <div class="section-divider divider-faq-footer" aria-hidden="true">
+    <svg viewBox="0 0 1440 48" fill="none" preserveAspectRatio="none">
+      <path class="fill-footer" d="M0,48 L1440,0 L1440,48 Z"></path>
+    </svg>
+  </div>
 
   <!-- FOOTER -->
   <footer class="site-footer">
@@ -962,6 +1058,7 @@
           <li><a href="#diferenciais">Diferenciais</a></li>
           <li><a href="#solucoes">Soluções</a></li>
           <li><a href="#produtos">Vitrine</a></li>
+          <li><a href="#tecnologias">Tecnologias</a></li>
           <li><a href="#faq">FAQ</a></li>
         </ul>
       </div>
